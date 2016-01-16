@@ -18,7 +18,7 @@ import numpy as np
 ## Pull second twin data...
 
 # Import first twins' MIT data from csv into pandas dataframe
-data = pd.read_csv('../germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=range(0,70))
+data = pd.read_csv('../data/germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=range(0,70))
 
 # Rename columns in dataframe to match our schema
 data.rename(columns={'Unnamed: 0': 'twin_pair_id', 'Twin_Num_of2.twin1': 'twin_id', 'sex_x.twin1' : 'gender', 'age.twin1' : 'age', 'Zygosity.twin1' : 'twin_type'}, inplace=True)
