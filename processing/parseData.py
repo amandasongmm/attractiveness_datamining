@@ -2,7 +2,7 @@
 # parseData.py
 #
 # The purpose of this script is to parse the twin attractiveness data
-# into a pandas dataframe where it can be sorted and processed.
+# into a pandas dataframe, sort, preprocess, and save to a csv.
 #
 # Built for Python2 in order to work best with machine learning libraries.
 #
@@ -74,10 +74,8 @@ allData = allData.sort_values(['image_id', 'twin_pair_id', 'twin_id']);
 
 
 '''
-	Label:		PrintResults
-	Purpose:	Print out the dataframe and schema to verify correctness
+	Label:		SaveResults
+	Purpose:	Print out the dataframe and schema to file
 '''
-# Print out the dataframe's schema and columns
-print allData.columns
-print '\n'
-print allData
+# Save the dataframe's schema and columns
+allData.to_csv('../data/parsedData.csv')
