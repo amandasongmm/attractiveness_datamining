@@ -27,13 +27,13 @@ import re
 allData = parseSet(5,399)
 
 # Beginning indexes of Glascow Dataset
-allData = allData.append(parseSet(71, 465))
+allData = allData.append(parseSet(70, 464))
 
 # Beginning indexes of Non-Glascow Dataset
-allData = allData.append(parseSet(201, 595))
+allData = allData.append(parseSet(200, 594))
 
-# Beginning indexes of 
-allData = allData.append(parseSet(266, 660))
+# Beginning indexes of Genhead set
+allData = allData.append(parseSet(265, 659))
 
 
 
@@ -42,4 +42,4 @@ allData = allData.append(parseSet(266, 660))
 	Purpose:	Print out the dataframe and schema to file
 '''
 # Save the dataframe's schema and columns
-allData.to_csv('../data/parsedData.csv')
+allData.to_csv('../data/parsedData.csv', index=False)
