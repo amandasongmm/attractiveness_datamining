@@ -19,6 +19,10 @@ from scipy import spatial
 
 
 
+NUM_SAMPLES = 500
+
+
+
 '''
 	Label:		Function_addSecondTwin
 	Purpose:	Define the function which will be used to add the second twin
@@ -52,17 +56,17 @@ data = pd.read_csv('../data/parsedData.csv')
 				from identical twins, non-identical twins, and random couples
 '''
 # Generate list of random MZ twins to use
-mz_twins = data[data.twin_type == 'MZ'][data.twin_id == 1].sample(50)
+mz_twins = data[data.twin_type == 'MZ'][data.twin_id == 1].sample(NUM_SAMPLES)
 
 # Generate list of random DZ twins to use
-dz_twins = data[data.twin_type == 'DZ'][data.twin_id == 1].sample(50)
+dz_twins = data[data.twin_type == 'DZ'][data.twin_id == 1].sample(NUM_SAMPLES)
 
 # Add the second twin
 mz_twins = addSecondTwin(mz_twins)
 dz_twins = addSecondTwin(dz_twins)
 
 # Generate list of random pairs
-rand_twins = data.sample(50)
+rand_twins = data.sample(NUM_SAMPLES)
 
 # Add another random participant who rated that face
 for index, row in rand_twins.iterrows():
@@ -74,18 +78,18 @@ for index, row in rand_twins.iterrows():
 
 
 
-
 '''
 	Label:		PairDifference
 	Purpose:	Calculate the similarity of each pair in the 3 groups
 '''
 def calcDifference (twinSet):
-	distances = [0 for x in range(50)]
+	distances = [0 for x in range(NUM_SAMPLES)]
 	x = 0
-	while x < 100:
+	while x < (NUM_SAMPLES*2):
 		distances[x/2] = float(twinSet.iloc[x]['rating']) - float(twinSet.iloc[x+1]['rating'])
 		distances[x/2] = abs(distances[x/2])
 		x = x + 2
+	distances = np.nan_to_num(distances)
 	return distances
 
 mz_dist = calcDifference(mz_twins)
@@ -115,7 +119,7 @@ print 'Average difference for Random ='
 print np.mean(rand_dist)
 print ''
 
-yaxis = np.arange(50)
+yaxis = np.arange(NUM_SAMPLES)
 
 plt.scatter(mz_dist, yaxis, color='red')
 plt.scatter(dz_dist, yaxis, color='blue')
