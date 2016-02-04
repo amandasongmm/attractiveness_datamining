@@ -14,7 +14,6 @@
 
 import os
 import sys
-import glob
 import dlib
 from skimage import io
 import pandas as pd
@@ -64,7 +63,7 @@ for imgNum in range(200):
     # Add the landmarks to the dataframe
 	for i in range(68):
 		x = shape.part(i).x
-		y = shape.part(i).x
+		y = shape.part(i).y
 		landmarkMatrix = landmarkMatrix.append(pd.Series([str(imgFile), i, x, y], index=['image', 'point', 'x', 'y']), ignore_index=True)
 
 

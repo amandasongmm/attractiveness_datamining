@@ -20,6 +20,8 @@ import re
 TWIN_1_INFO = range(5)					 # Range of personal info for twin1
 TWIN_2_INFO = range(1) + range(395, 399) # Range of personal info for twin2
 
+AMT_PER_SET = 50	# Number of non-repeating images from each set
+
 
 
 def parseSet (twin1Start, twin2Start):
@@ -28,14 +30,14 @@ def parseSet (twin1Start, twin2Start):
 		Purpose: 	Parse the data for twin 1 and 2 into a dataframe
 	'''
 	# Import first twins' MIT data from csv into pandas dataframe
-	data = pd.read_csv('../data/germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=(TWIN_1_INFO + range(twin1Start, twin1Start+50)))
+	data = pd.read_csv('../data/germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=(TWIN_1_INFO + range(twin1Start, twin1Start+AMT_PER_SET)))
 
 	# Rename columns in dataframe to match our schema
 	data.rename(columns={'Unnamed: 0': 'twin_pair_id', 'Twin_Num_of2.twin1': 'twin_id', 'sex_x.twin1' : 'gender', 'age.twin1' : 'age', 'Zygosity.twin1' : 'twin_type'}, inplace=True)
 
 	# Import second twins' MIT data from csv into pandas dataframe
 	# Grab twin pair id from front, twin2 data from middle of csv
-	data2 = pd.read_csv('../data/germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=(TWIN_2_INFO + range(twin2Start, twin2Start+50)))
+	data2 = pd.read_csv('../data/germine_CurrentBiology_twinaesthetics_PUBLIC.csv', usecols=(TWIN_2_INFO + range(twin2Start, twin2Start+AMT_PER_SET)))
 
 	# Rename columns in dataframe to match our schema
 	data2.rename(columns={'Unnamed: 0': 'twin_pair_id', 'Twin_Num_of2.twin2': 'twin_id', 'sex_x.twin2' : 'gender', 'age.twin2' : 'age', 'Zygosity.twin2' : 'twin_type'}, inplace=True)
@@ -61,7 +63,6 @@ def parseSet (twin1Start, twin2Start):
 		Label:		ProcessData
 		Purpose:	Map the data to our desired schema
 	'''
-
 	# Create column for indicating picture dataset (Strip face and twin info)
 	data['dataset'] = data['image_id'].map(lambda x: x[6: (re.search('\d', x)).start()])
 
