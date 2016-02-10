@@ -21,6 +21,11 @@ import numpy as np
 
 
 
+# Set this flag to 1 in order to visualize results
+VISUALIZE = 1
+
+
+
 '''
 	Label:		ParseCommandLine
 	Purpose:	Parse the command line args
@@ -49,16 +54,31 @@ landmarkMatrix = pd.DataFrame(columns=['image', 'point', 'x', 'y'])
 # Track which image to landmark in the non-linear sequence
 locations = pd.read_csv('imageLocations.csv')
 
+# Change constant at top to see visualizations
+if (VISUALIZE == 1):
+	win = dlib.image_window()
+
 # Iterate over each image and generate + store landmarks
 for imgNum in range(200):
 	imgFile = os.path.join(faces_folder_path, locations['locations'][imgNum])
 	img = io.imread(imgFile)
+
+	# Change constant at top to see visualizations
+	if (VISUALIZE == 1):
+		win.clear_overlay()
+		win.set_image(img)
 
     # Detect the bounding box of the face
 	box = detector(img, 1)
 
     # Find landmarks in the bounding box
 	shape = predictor(img, box[0])
+
+	# Change constant at top to see visualizations
+	if (VISUALIZE == 1):
+		win.add_overlay(shape)
+		win.add_overlay(box)
+		dlib.hit_enter_to_continue()
 
     # Add the landmarks to the dataframe
 	for i in range(68):
