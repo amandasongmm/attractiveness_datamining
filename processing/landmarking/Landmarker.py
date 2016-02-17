@@ -22,7 +22,7 @@ import numpy as np
 
 
 # Set this flag to 1 in order to visualize results
-VISUALIZE = 1
+VISUALIZE = 0
 
 
 
@@ -31,7 +31,7 @@ VISUALIZE = 1
 	Purpose:	Parse the command line args
 '''
 predictor_path = 'landmarks68.dat'
-faces_folder_path = '../../aesthetics/'
+faces_folder_path = '../../imageData/'
 
 
 
@@ -92,5 +92,5 @@ for imgNum in range(200):
 	Label:		SaveLandmarks
 	Purpose:	Save the dataframe to a csv for later use
 '''
-landmarkMatrix.to_csv('allLandmarks.csv', index=False)
+landmarkMatrix.to_csv('allLandmarksWithoutHairline.csv', index=False)
 print 'Finished landmarking. Check allLandmarks.csv'
