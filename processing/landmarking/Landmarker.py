@@ -1,5 +1,5 @@
 #
-# landmarker.py
+# Landmarker.py
 #
 # The purpose of this script is to use dlib to perform facial landmarking on
 # the 200 faces which we plan to extract Chicago Dataset features from.

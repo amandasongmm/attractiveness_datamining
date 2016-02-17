@@ -35,7 +35,7 @@ data = pd.read_csv('allLandmarks.csv')
 	Label:		CreateDataFrame
 	Purpose:	Create a dataframe with the structure for storing featuress
 '''
-features = pd.DataFrame(columns=('dataset', 'img_num', 'nose_width', 'nose_length', 'lip_thickness', 'face_length', 'eye_height', 'eye_width', 'face_width_prom', 'face_width_mouth', 'forehead_length', 'distance_btw_pupils', 'dist_btw_pupils_top','dist_btw_pupils_lip', 'chin_length', 'length_cheek_to_chin', 'brow_to_hair', 'fWHR', 'face_shape', 'heartshapeness', 'nose_shape', 'lip_fullness', 'eye_shape', 'eye_size', 'upper_head_len', 'midface_len'))
+features = pd.DataFrame(columns=('dataset', 'img_num', 'nose_width', 'nose_length', 'lip_thickness', 'face_length', 'eye_height', 'eye_width', 'face_width_prom', 'face_width_mouth', 'forehead_length', 'distance_btw_pupils', 'dist_btw_pupils_top','dist_btw_pupils_lip', 'chin_length', 'length_cheek_to_chin', 'brow_to_hair', 'fWHR', 'face_shape', 'heartshapeness', 'nose_shape', 'lip_fullness', 'eye_shape', 'eye_size', 'upper_head_len', 'midface_len', 'chin_size', 'forehead_height', 'cheek_height', 'cheek_prominence', 'face_roundness'))
 
 
 
@@ -120,13 +120,23 @@ for i in range(NUM_IMG):
 
 	midface_len = dist_btw_pupils_lip / face_length
 
+	chin_size = chin_length / face_length
+
+	forehead_height = brow_to_hair / face_length
+
+	cheek_height = length_cheek_to_chin / face_length
+
+	cheek_prominence = (face_width_prom - face_width_mouth) / face_length
+
+	face_roundness = face_width_mouth / face_length
+
 
 
 	'''
 		Label:		SaveFeatures
 		Purpose:	Saves the features as a row entry in a dataframe
 	'''
-	curFeatures = pd.Series([dataset, i%50, nose_width, nose_length, lip_thickness, face_length, eye_height, eye_width, face_width_prom, face_width_mouth, forehead_length, distance_btw_pupils, dist_btw_pupils_top,dist_btw_pupils_lip, chin_length, length_cheek_to_chin, brow_to_hair, fWHR, face_shape, heartshapeness, nose_shape, lip_fullness, eye_shape, eye_size, upper_head_len, midface_len], index=features.columns)
+	curFeatures = pd.Series([dataset, i%50, nose_width, nose_length, lip_thickness, face_length, eye_height, eye_width, face_width_prom, face_width_mouth, forehead_length, distance_btw_pupils, dist_btw_pupils_top,dist_btw_pupils_lip, chin_length, length_cheek_to_chin, brow_to_hair, fWHR, face_shape, heartshapeness, nose_shape, lip_fullness, eye_shape, eye_size, upper_head_len, midface_len, chin_size, forehead_height, cheek_height, cheek_prominence, face_roundness], index=features.columns)
 
 	features.loc[i] = curFeatures
 
