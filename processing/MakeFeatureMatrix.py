@@ -25,7 +25,7 @@ for i in range(1,1549):
     pairNum = int((i+1)/2)
 
     # Skip the bad entries
-    if pairNum != 94 and pairNum != 418:
+    if pairNum != 94 and pairNum != 418 and pairNum != 338:
         # Grab the next person's ratings and add them to dataframe
         oneRow = ((origData[origData.twin_pair_id == pairNum][origData.twin_id == twinNum])['rating']).map(lambda x: float(x)).as_matrix()
 
