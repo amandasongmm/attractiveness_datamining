@@ -17,7 +17,10 @@ import matplotlib.pyplot as plt
 
 
 
-# Plot predicted vs actual
+#
+# Label:   PredictedVsActual
+# Purpose: Plot predicted vs actual ratings
+#
 predicted = pd.read_csv('predictedRatings.csv')
 original = pd.read_csv('ratingMatrixChad.csv')
 
@@ -34,7 +37,10 @@ plt.show()
 
 
 
-# Create plot for MSE, Correlation, and Variance Score
+#
+# Label:   PlotStatistics
+# Purpose: Plot the MSE, Correlation and Variance Score
+#
 correlation = pd.read_csv('correlations.csv')
 variance = pd.read_csv('varianceScore.csv')
 mse = pd.read_csv('mseVals.csv')
@@ -62,16 +68,38 @@ ax2.set_xticklabels(('Correlation','VarianceScore','MeanSquaredError'))
 plt.show()
 
 
-# Plot weights of PCs projected back to original features
-coefficients = pd.read_csv('PCCompositions.csv')
-for i in range (29):
-    normalized = coefficients[str(i)]
-    normalized = (normalized - normalized.mean()) / (normalized.max() - normalized.min())
-    coefficients[str(i)] = normalized
 
-weights = coefficients.as_matrix()
-#weightDev = np.std(weights, axis=0)
+#
+# Label:   OriginalWeights
+# Purpose: Project PCs back to original features, and apply the weights
+#           from linear regression to the original features, then plot
+#
+linRegWeights = pd.read_csv('linearCoefficients.csv')
+PCCompositions = pd.read_csv('PCCompositions.csv', usecols=(range(6)))
+
+# Normalize the weights of each PC (representing coverage of variance)
+# before multiplying by the weight calculated by linear regression
+for i in range (6):
+    normalized = PCCompositions[str(i)]
+    normalized = (normalized - normalized.mean()) / (normalized.max() - normalized.min())
+    PCCompositions[str(i)] = normalized
+
+
+# Calculate mean and deviation of linear regression weights of the PCs
+linRegWeights = linRegWeights.as_matrix()
+deviation = np.std(linRegWeights, axis=0)
+linRegWeights = np.mean(linRegWeights, axis=0)
+
+# The transformation coefficients from PCs to original features
+PCCompositions = PCCompositions.as_matrix()
+
+# Transform the PC weights to original 29 features
+weights = np.multiply(PCCompositions, linRegWeights)
 weights = np.mean(weights, axis=1)
+
+# Transform the deviation from the PCs to the features
+deviation = np.multiply(PCCompositions, deviation)
+deviation = np.mean(deviation, axis=1)
 
 # the x locations for the groups
 x = range(1,30)
@@ -79,7 +107,7 @@ x = range(1,30)
 fig3 = plt.figure()
 ax3 = fig3.add_subplot(111)
 
-rect = ax3.bar(x, weights, .15) #, yerr=weightDev, error_kw={'ecolor':'Tomato', 'linewidth':2})
+rect = ax3.bar(x, weights, .15, yerr=deviation, error_kw={'ecolor':'Tomato', 'linewidth':2})
 
 axes = plt.gca()
 
