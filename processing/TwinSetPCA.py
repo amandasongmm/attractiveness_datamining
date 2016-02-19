@@ -36,6 +36,12 @@ newFeatures = pca.fit_transform(npData)
 # Put the new feature matrix into a dataframe
 newData = pd.DataFrame(newFeatures)
 
+# Calculate the primary component compositions
+allPC = PCA()
+allPCs = allPC.fit_transform(npData)
+identity = np.identity(29) # For 29 initial features
+composition = pd.DataFrame(allPC.transform(identity))
+
 
 
 #
@@ -47,4 +53,5 @@ print pca.explained_variance_ratio_
 print '\nn_components = '
 print pca.n_components_
 
-newData.to_csv('PCA_Features.csv')
+newData.to_csv('PCA_Features.csv', index=False)
+composition.to_csv('PCCompositions.csv', index=False)

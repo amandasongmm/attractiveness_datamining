@@ -19,7 +19,7 @@ from sklearn import linear_model
 
 
 # Load in the 6 PCs for image features
-x = pd.read_csv('PCA_Features.csv', usecols=range(1,7))
+x = pd.read_csv('PCA_Features.csv')
 x = x.as_matrix()
 
 # Load in everyone's ratings for the 200 faces

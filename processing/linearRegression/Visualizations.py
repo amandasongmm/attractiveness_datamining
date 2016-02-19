@@ -15,6 +15,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
 # Plot predicted vs actual
 predicted = pd.read_csv('predictedRatings.csv')
 original = pd.read_csv('ratingMatrixChad.csv')
@@ -60,5 +62,29 @@ ax2.set_xticklabels(('Correlation','VarianceScore','MeanSquaredError'))
 plt.show()
 
 
+# Plot weights of PCs projected back to original features
+coefficients = pd.read_csv('PCCompositions.csv')
+for i in range (29):
+    normalized = coefficients[str(i)]
+    normalized = (normalized - normalized.mean()) / (normalized.max() - normalized.min())
+    coefficients[str(i)] = normalized
 
-# Plot coefficients / weights of PCs projected back to original features
+weights = coefficients.as_matrix()
+#weightDev = np.std(weights, axis=0)
+weights = np.mean(weights, axis=1)
+
+# the x locations for the groups
+x = range(1,30)
+
+fig3 = plt.figure()
+ax3 = fig3.add_subplot(111)
+
+rect = ax3.bar(x, weights, .15) #, yerr=weightDev, error_kw={'ecolor':'Tomato', 'linewidth':2})
+
+axes = plt.gca()
+
+ax3.set_xticks(x)
+ax3.set_xticklabels(range(1,30))
+ax3.set_xlabel('Original Features')
+ax3.set_ylabel('Weight from PCs')
+plt.show()
