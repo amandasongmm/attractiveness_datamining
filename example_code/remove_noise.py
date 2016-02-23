@@ -55,9 +55,11 @@ def get_ind_for_pc_dim():
 
     pc_sorted_ind_list = []
     for cur_dim in range(pc_dim_total_num):
-        cur_value_array = feature_arr[cur_dim, :]
+        cur_value_array = feature_arr[:, cur_dim]
         sort_ind_low2high = np.argsort(cur_value_array)
         pc_sorted_ind_list.append(sort_ind_low2high)
+
+    np.savez('tmp/pc_sorted_ind_list', pc_sorted_ind_list=pc_sorted_ind_list)
     return pc_sorted_ind_list
 
 
@@ -65,7 +67,9 @@ def main():
     # p = Params()
     # file_ind, full_rating, feature_arr = load_rating_data(True)
     # feature_arr = calc_pca(feature_arr, p)
-    get_ind_for_pc_dim()
+    pc_sorted_ind_list = get_ind_for_pc_dim()
+    return
+
 
 if __name__ == '__main__':
     main()
