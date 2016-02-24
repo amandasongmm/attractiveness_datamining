@@ -18,6 +18,9 @@ import math
 from sklearn import linear_model
 
 
+NUM_PCS = 10
+
+
 # Load in the 6 PCs for image features
 x = pd.read_csv('PCA_Features.csv')
 x = x.as_matrix()
@@ -27,7 +30,7 @@ yData = pd.read_csv('ratingMatrixChad.csv')
 
 # Dataframe to hold the coefficients calculated for each person's linregress
 predicted = pd.DataFrame(columns=range(1,201))
-coefficients = pd.DataFrame(columns=range(6))
+coefficients = pd.DataFrame(columns=range(NUM_PCS))
 MSEs = pd.Series(range(yData.index.size))
 varScore = pd.Series(yData.index.size)
 correlation = pd.Series(yData.index.size)

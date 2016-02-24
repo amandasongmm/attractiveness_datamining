@@ -21,7 +21,8 @@ from sklearn.decomposition import PCA
 # Label:   LoadData
 # Purpose: Load in the twin set feature matrix
 #
-data = pd.read_csv('./landmarking/allFeatures.csv', usecols=range(2,31))
+data = pd.read_csv('./scaledFeatures.csv')
+#data = pd.read_csv('./landmarking/allFeatures.csv', usecols=range(2,31))
 npData = data.as_matrix()
 
 

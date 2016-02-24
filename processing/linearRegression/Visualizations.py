@@ -16,6 +16,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+NUM_PCS = 10
+
 
 #
 # Label:   PredictedVsActual
@@ -75,11 +77,11 @@ plt.show()
 #           from linear regression to the original features, then plot
 #
 linRegWeights = pd.read_csv('linearCoefficients.csv')
-PCCompositions = pd.read_csv('PCCompositions.csv', usecols=(range(6)))
+PCCompositions = pd.read_csv('PCCompositions.csv', usecols=(range(NUM_PCS)))
 
 # Normalize the weights of each PC (representing coverage of variance)
 # before multiplying by the weight calculated by linear regression
-for i in range (6):
+for i in range (NUM_PCS):
     normalized = PCCompositions[str(i)]
     normalized = (normalized - normalized.mean()) / (normalized.max() - normalized.min())
     PCCompositions[str(i)] = normalized
