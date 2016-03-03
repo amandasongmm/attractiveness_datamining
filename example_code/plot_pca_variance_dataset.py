@@ -6,7 +6,7 @@ import pandas as pd
 
 '''
 This program computes the PC components for each dataset's feature matrix.
-It then analyze the explained variance captured by each PC in every separate dataset.
+It then analyzes the explained variance captured by each PC in every separate dataset.
 It generates two visualizations to illustrate the distribution of explained variance in each dataset.
 '''
 
