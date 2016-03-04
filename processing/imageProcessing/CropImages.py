@@ -17,7 +17,7 @@ import os
 faces_folder_path = '../../imageData/'
 
 # Load in the landmark points of the faces
-landmarks = pd.read_csv('allLandmarks.csv')
+landmarks = pd.read_csv('allOriginalLandmarks.csv')
 
 # Track the order of features in the 4 datasets
 fileLocs = pd.read_csv('imageLocations.csv')
