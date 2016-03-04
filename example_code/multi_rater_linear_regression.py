@@ -13,15 +13,14 @@ __author__ = 'amanda'
 
 def load_data():
     # Load the data
-    npz_data = np.load('tmp/full_rating.npz')
-    full_rating = npz_data['full_rating']
-    feature_arr = npz_data['feature_arr']
-    full_rating = full_rating.T  # after transpose, the dimension is 200*1545
-
-    # Check if anyone gives the same rating to all faces. If so, delete him.
-    assole_sub_ind = [i for i, x in enumerate(np.std(full_rating, axis=0)) if x == 0]
-    full_rating = np.delete(full_rating, assole_sub_ind, axis=1)
-    return feature_arr, full_rating
+    rating_data = np.load('tmp/clean_rating_data.npz')
+    full_rating = rating_data['full_rating']
+    feature_data = np.load('tmp/feature_arr.npz')
+    feature_arr = feature_data['feature_arr']
+    full_rating = full_rating.T  # after transpose, the dimension is 200*1540
+    # do preprocessing to the feature array.
+    feature_arr = preprocessing.scale(feature_arr)  # mean in each feature dim = 0, std =1.
+    return feature_arr, full_rating  # 200 * 29, 200 * 1540.
 
 
 '''
@@ -48,7 +47,7 @@ def plain_lg_all_sub(feature_arr, full_rating):
     cor_std = np.std(correlation_list)
     print_string = 'The group average corcoe is {:.2f}, the std is {:.2f}'.format(cor_mean, cor_std)
     print print_string
-    return correlation_list, cor_mean, cor_std
+    return correlation_list, cor_mean, cor_stdd
 
 '''
 Task 2. Calculate the average rating for each face. Fit a model. Compute the correlation.
