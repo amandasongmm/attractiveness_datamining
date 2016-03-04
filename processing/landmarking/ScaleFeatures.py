@@ -19,7 +19,7 @@ features = pd.read_csv('allFeatures.csv')
 features.drop(list(features.columns[x] for x in [0,1]), axis=1, inplace=True)
 
 # Scale it
-features = pd.DataFrame(preprocessing.scale(features, axis=1))
+features = pd.DataFrame(preprocessing.scale(features, axis=0))
 
 # Save it
-features.to_csv('scaledFeatures.csv')
+features.to_csv('scaledFeatures.csv', index=False)
