@@ -22,7 +22,7 @@ from sklearn.cross_validation import train_test_split
 
 
 NUM_FEATS = 29
-alpha = .00002
+alpha = .000002
 
 
 # Load in the original features
