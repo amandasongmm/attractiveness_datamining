@@ -18,7 +18,7 @@ import math
 from sklearn import linear_model
 
 
-NUM_PCS = 10
+NUM_PCS = 11
 
 
 # Load in the 6 PCs for image features

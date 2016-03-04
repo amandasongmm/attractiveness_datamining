@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-NUM_PCS = 10
+NUM_PCS = 11
 
 
 #
