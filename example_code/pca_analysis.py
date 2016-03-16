@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import scipy.stats as spstat
 
+
 __author__ = 'amanda'
 
 
@@ -83,7 +84,7 @@ def visualize_sorted_pc(pc_ind):
     return
 
 
-def correlation_analysis(orig_feature, pca_feature):
+def correlation_comp(orig_feature, pca_feature):
     cor_arr = np.zeros((pca_feature.shape[1], orig_feature.shape[1]))
     pvalue_arr = np.zeros((pca_feature.shape[1], orig_feature.shape[1]))
     for cur_pca_ind in range(pca_feature.shape[1]):
@@ -91,14 +92,31 @@ def correlation_analysis(orig_feature, pca_feature):
             cor_coef, pvalue = spstat.pearsonr(pca_feature[:, cur_pca_ind], orig_feature[:, cur_orig_ind])
             cor_arr[cur_pca_ind, cur_orig_ind] = cor_coef
             pvalue_arr[cur_pca_ind, cur_orig_ind] = pvalue
+    return cor_arr, pvalue_arr
 
+
+def plot_correlation_heatmap(cor_arr, pvalue_arr):
     # read the column values of the orig feature arrays.
     orig_fea = pd.read_csv('data/allFeatures.csv', delimiter=',')
     title_list = list(orig_fea.columns.values)
-    columns = title_list[2:]
-    index = ['pc1', 'pc2', 'pc3', 'pc4', 'pc5', 'pc6', 'pc7', 'pc8']
-    df = pd.DataFrame(cor_arr, columns=columns, index=index)
-    return cor_arr, pvalue_arr
+    column_labels = title_list[2:]
+    row_labels = ['pc1', 'pc2', 'pc3', 'pc4', 'pc5', 'pc6', 'pc7', 'pc8']
+
+    cor_arr[np.where(pvalue_arr > 0.05)] = 0
+    cor_arr = cor_arr.T
+
+    fig, ax = plt.subplots()
+    heatmap = ax.pcolor(cor_arr, cmap=plt.cm.bwr, alpha=0.8)
+    ax.set_yticks(np.arange(cor_arr.shape[0])+0.5, minor=False)
+    ax.set_xticks(np.arange(cor_arr.shape[1])+0.5, minor=False)
+    ax.xaxis.tick_top()
+    ax.set_xticklabels(row_labels, minor=False)
+    ax.set_yticklabels(column_labels, minor=False)
+    plt.xticks(rotation=45)
+    plt.colorbar(heatmap)
+    plt.savefig('./pc_variance_fig/pc_correlation_with_orig_feature.jpg', dpi=120, pad_inches=30)
+    plt.show()
+    return
 
 
 def main(para_explained_var):
@@ -106,8 +124,9 @@ def main(para_explained_var):
     pca_feature_arr, pc_sorted_ind_list, explained_ratio = calc_pca(orig_feature_arr, para_explained_var)
     # plot_explained_variance(explained_ratio)
     # visualize_sorted_pc(pc_sorted_ind_list)
-    cor_arr, pvalue_arr = correlation_analysis(orig_feature_arr, pca_feature_arr)
-    return cor_arr, pvalue_arr
+    cor_arr, pvalue_arr = correlation_comp(orig_feature_arr, pca_feature_arr)
+    plot_correlation_heatmap(cor_arr, pvalue_arr)
+    return
 
 
 if __name__ == '__main__':
