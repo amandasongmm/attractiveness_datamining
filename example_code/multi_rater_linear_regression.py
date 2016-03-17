@@ -25,7 +25,7 @@ def load_data():
 
 '''
 Task 1.
-Compute the prediction's correlation with every rater using the linear model's prediction.
+Compute the prediction's correlation with evx_train, x_test, y_train, y_test = train_test_split(feature_arr, full_rating, test_size=0.1)ery rater using the linear model's prediction.
 No preprocessing of the data.
 '''
 
