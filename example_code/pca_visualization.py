@@ -12,7 +12,7 @@ import scipy.stats as spstat
 __author__ = 'amanda'
 
 
-def load_allfeatures_data():
+def load_orig_feature_data():
     # Generate feature array from allFeatures.csv, if already generated, directly load orig_figure_arr
     if not os.path.exists('tmp/original_features.npz'):
         # Load feature array data, only keep the actual feature arrays
@@ -120,7 +120,7 @@ def plot_correlation_heatmap(cor_arr, pvalue_arr):
 
 
 def main(para_explained_var):
-    orig_feature_arr = load_allfeatures_data()
+    orig_feature_arr = load_orig_feature_data()
     pca_feature_arr, pc_sorted_ind_list, explained_ratio = calc_pca(orig_feature_arr, para_explained_var)
     # plot_explained_variance(explained_ratio)
     # visualize_sorted_pc(pc_sorted_ind_list)
