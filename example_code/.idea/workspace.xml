@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2e42878-32ce-490c-89e9-aa1e4f5d4650" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visualize_linear_regression_stats.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/box.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/linear_regression_per_dataset.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/multi_rater_linear_regression.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stacked_bar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/task1_four_dataset_version.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/linearRegressionPipeline.py" afterPath="$PROJECT_DIR$/linearRegressionComp.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pca_analysis.py" afterPath="$PROJECT_DIR$/pca_visualization.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myCanvas.ipynb" afterPath="$PROJECT_DIR$/myCanvas.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="example_code.iws" />
@@ -17,20 +26,22 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/example_code$remove_noise.coverage" NAME="remove_noise Coverage Results" MODIFIED="1456219042280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$generate_image_list.coverage" NAME="generate_image_list Coverage Results" MODIFIED="1456212146242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$bokeh_scatter.coverage" NAME="bokeh_scatter Coverage Results" MODIFIED="1456465028118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$linear_regression.coverage" NAME="linear_regression Coverage Results" MODIFIED="1456561836635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$visualize_linear_regression_stats.coverage" NAME="visualize_linear_regression_stats Coverage Results" MODIFIED="1458213496243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/example_code$pca_analysis.coverage" NAME="pca_analysis Coverage Results" MODIFIED="1458112624952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$matlib_subploty.coverage" NAME="matlib_subploty Coverage Results" MODIFIED="1456472628840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$plot_pca_variance_dataset.coverage" NAME="plot_pca_variance_dataset Coverage Results" MODIFIED="1456910776399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$linear_model_per_dataset.coverage" NAME="linear_model_per_dataset Coverage Results" MODIFIED="1456878269148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/example_code$gen_im_list.coverage" NAME="gen_im_list Coverage Results" MODIFIED="1456212197384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/example_code$multi_rater_linear_regression.coverage" NAME="multi_rater_linear_regression Coverage Results" MODIFIED="1457003945219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$generate_image_list.coverage" NAME="generate_image_list Coverage Results" MODIFIED="1456212146242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$linear_regression.coverage" NAME="linear_regression Coverage Results" MODIFIED="1456561836635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$bokeh_exp.coverage" NAME="bokeh_exp Coverage Results" MODIFIED="1456224502125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$visualize_pca_dim.coverage" NAME="visualize_pca_dim Coverage Results" MODIFIED="1456460791468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$rating_data_cleaning.coverage" NAME="rating_data_cleaning Coverage Results" MODIFIED="1457078993686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$bokeh_scatter.coverage" NAME="bokeh_scatter Coverage Results" MODIFIED="1456465028118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$plot_pca_variance_dataset.coverage" NAME="plot_pca_variance_dataset Coverage Results" MODIFIED="1456910776399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/example_code$linear_regression_per_dataset.coverage" NAME="linear_regression_per_dataset Coverage Results" MODIFIED="1456914847706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$linear_model_per_dataset.coverage" NAME="linear_model_per_dataset Coverage Results" MODIFIED="1456878269148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/example_code$remove_noise.coverage" NAME="remove_noise Coverage Results" MODIFIED="1456219042280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$rating_data_cleaning.coverage" NAME="rating_data_cleaning Coverage Results" MODIFIED="1457078993686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$bokeh_exp.coverage" NAME="bokeh_exp Coverage Results" MODIFIED="1456224502125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$linearRegressionPipeline.coverage" NAME="linearRegressionPipeline Coverage Results" MODIFIED="1458213718884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$matlib_subploty.coverage" NAME="matlib_subploty Coverage Results" MODIFIED="1456472628840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/example_code$visualize_pca_dim.coverage" NAME="visualize_pca_dim Coverage Results" MODIFIED="1456460791468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -41,47 +52,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="task1_lr_test_preprocessing.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/task1_lr_test_preprocessing.py">
+      <file leaf-file-name="linearRegressionComp.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/linearRegressionComp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6451613">
-              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+=======
+            <state vertical-scroll-proportion="0.53028893">
+              <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="33" />
+>>>>>>> c80ebc48458e2be4e36e06624b6aeb686ac1f156
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#3914#3927#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pca_analysis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pca_analysis.py">
+      <file leaf-file-name="visualize_linear_regression_stats.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualize_linear_regression_stats.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#2382#2935#0" expanded="false" />
-                <element signature="e#2975#3534#0" expanded="false" />
-                <element signature="e#3590#4093#0" expanded="false" />
-                <element signature="e#4151#5015#0" expanded="false" />
-                <element signature="e#5052#5432#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="multi_rater_linear_regression.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multi_rater_linear_regression.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-              <folding>
-                <element signature="e#1046#1764#0" expanded="false" />
-                <element signature="e#2054#2495#0" expanded="false" />
-                <element signature="e#2567#2763#0" expanded="false" />
-                <element signature="e#2822#4127#0" expanded="false" />
-                <element signature="e#4146#4563#0" expanded="false" />
-              </folding>
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,11 +112,14 @@
         <option value="$PROJECT_DIR$/plot_pca_variance_dataset.py" />
         <option value="$PROJECT_DIR$/linear_regression_per_dataset.py" />
         <option value="$PROJECT_DIR$/rating_data_cleaning.py" />
-        <option value="$PROJECT_DIR$/multi_rater_linear_regression.py" />
         <option value="$PROJECT_DIR$/sample_code/gen_new_imlist.py" />
         <option value="$PROJECT_DIR$/gen_new_imlist.py" />
-        <option value="$PROJECT_DIR$/pca_analysis.py" />
         <option value="$PROJECT_DIR$/task1_lr_test_preprocessing.py" />
+        <option value="$PROJECT_DIR$/multi_rater_linear_regression.py" />
+        <option value="$PROJECT_DIR$/linearRegressionPipeline.py" />
+        <option value="$PROJECT_DIR$/pca_analysis.py" />
+        <option value="$PROJECT_DIR$/visualize_linear_regression_stats.py" />
+        <option value="$PROJECT_DIR$/linearRegressionComp.py" />
       </list>
     </option>
   </component>
@@ -134,10 +131,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="1985" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -215,6 +212,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="example_code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="example_code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -234,43 +245,7 @@
       <recent name="$PROJECT_DIR$/example_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.pca_analysis">
-    <configuration default="false" name="plot_pca_variance_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="example_code" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample_code/plot_pca_variance_dataset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="linear_regression_per_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="example_code" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/linear_regression_per_dataset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.linearRegressionPipeline">
     <configuration default="false" name="multi_rater_linear_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +295,43 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="example_code" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pca_analysis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pca_visualization.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="linearRegressionPipeline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="example_code" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/linearRegressionComp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="visualize_linear_regression_stats" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="example_code" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualize_linear_regression_stats.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -514,19 +525,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.plot_pca_variance_dataset" />
-      <item index="1" class="java.lang.String" itemvalue="Python.linear_regression_per_dataset" />
-      <item index="2" class="java.lang.String" itemvalue="Python.multi_rater_linear_regression" />
-      <item index="3" class="java.lang.String" itemvalue="Python.rating_data_cleaning" />
-      <item index="4" class="java.lang.String" itemvalue="Python.pca_analysis" />
+      <item index="0" class="java.lang.String" itemvalue="Python.multi_rater_linear_regression" />
+      <item index="1" class="java.lang.String" itemvalue="Python.rating_data_cleaning" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pca_analysis" />
+      <item index="3" class="java.lang.String" itemvalue="Python.linearRegressionPipeline" />
+      <item index="4" class="java.lang.String" itemvalue="Python.visualize_linear_regression_stats" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.pca_analysis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.rating_data_cleaning" />
-        <item index="2" class="java.lang.String" itemvalue="Python.multi_rater_linear_regression" />
-        <item index="3" class="java.lang.String" itemvalue="Python.linear_regression_per_dataset" />
-        <item index="4" class="java.lang.String" itemvalue="Python.plot_pca_variance_dataset" />
+        <item index="0" class="java.lang.String" itemvalue="Python.linearRegressionPipeline" />
+        <item index="1" class="java.lang.String" itemvalue="Python.visualize_linear_regression_stats" />
+        <item index="2" class="java.lang.String" itemvalue="Python.pca_analysis" />
+        <item index="3" class="java.lang.String" itemvalue="Python.rating_data_cleaning" />
+        <item index="4" class="java.lang.String" itemvalue="Python.multi_rater_linear_regression" />
       </list>
     </recent_temporary>
   </component>
@@ -544,28 +555,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1985" y="24" width="1855" height="1176" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06684636" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16272545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1912659" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18867925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31428573" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> c80ebc48458e2be4e36e06624b6aeb686ac1f156
       <window_info id="Python Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4400221" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3606469" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38156313" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+=======
+>>>>>>> c80ebc48458e2be4e36e06624b6aeb686ac1f156
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08737475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -581,6 +601,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/visualize_linear_regression_stats.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/linearRegressionComp.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -591,17 +623,65 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="88" />
+      <option name="time" value="97" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/linearRegressionComp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#3914#3927#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/multi_rater_linear_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="e#1046#1764#0" expanded="false" />
+            <element signature="e#2054#2495#0" expanded="false" />
+            <element signature="e#2567#2763#0" expanded="false" />
+            <element signature="e#2822#4127#0" expanded="false" />
+            <element signature="e#4146#4563#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pca_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#322#945#0" expanded="false" />
+            <element signature="e#1004#2329#0" expanded="false" />
             <element signature="e#2382#2935#0" expanded="false" />
             <element signature="e#2975#3534#0" expanded="false" />
             <element signature="e#3590#4093#0" expanded="false" />
@@ -631,35 +711,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#2382#2935#0" expanded="false" />
-            <element signature="e#2975#3534#0" expanded="false" />
-            <element signature="e#3590#4093#0" expanded="false" />
-            <element signature="e#4151#5015#0" expanded="false" />
-            <element signature="e#5052#5432#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multi_rater_linear_regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding>
-            <element signature="e#1046#1764#0" expanded="false" />
-            <element signature="e#2054#2495#0" expanded="false" />
-            <element signature="e#2567#2763#0" expanded="false" />
-            <element signature="e#2822#4127#0" expanded="false" />
-            <element signature="e#4146#4563#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pca_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#322#945#0" expanded="false" />
+            <element signature="e#1004#2329#0" expanded="false" />
             <element signature="e#2382#2935#0" expanded="false" />
             <element signature="e#2975#3534#0" expanded="false" />
             <element signature="e#3590#4093#0" expanded="false" />
@@ -670,39 +723,35 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pca_analysis.py">
+=======
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
+>>>>>>> c80ebc48458e2be4e36e06624b6aeb686ac1f156
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#2382#2935#0" expanded="false" />
-            <element signature="e#2975#3534#0" expanded="false" />
-            <element signature="e#3590#4093#0" expanded="false" />
-            <element signature="e#4151#5015#0" expanded="false" />
-            <element signature="e#5052#5432#0" expanded="false" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pca_analysis.py">
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#2382#2935#0" expanded="false" />
-            <element signature="e#2975#3534#0" expanded="false" />
-            <element signature="e#3590#4093#0" expanded="false" />
-            <element signature="e#4151#5015#0" expanded="false" />
-            <element signature="e#5052#5432#0" expanded="false" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multi_rater_linear_regression.py">
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -748,20 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample_code/plot_pca_variance_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41888803">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample_code/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12414318">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/imagePathFile.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -790,51 +825,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multi_rater_linear_regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding>
-            <element signature="e#1046#1764#0" expanded="false" />
-            <element signature="e#2054#2495#0" expanded="false" />
-            <element signature="e#2567#2763#0" expanded="false" />
-            <element signature="e#2822#4127#0" expanded="false" />
-            <element signature="e#4146#4563#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/task1_four_dataset_version.py">
+    <entry file="file://$PROJECT_DIR$/sample_code/linear_regression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_code/plot_pca_variance_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4789357">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_code/params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11612903">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pca_visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.528425">
+          <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_code/start.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.1612284">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pca_analysis.py">
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33271202">
+          <caret line="311" column="8" selection-start-line="311" selection-start-column="8" selection-end-line="311" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualize_linear_regression_stats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#2382#2935#0" expanded="false" />
-            <element signature="e#2975#3534#0" expanded="false" />
-            <element signature="e#3590#4093#0" expanded="false" />
-            <element signature="e#4151#5015#0" expanded="false" />
-            <element signature="e#5052#5432#0" expanded="false" />
-          </folding>
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task1_lr_test_preprocessing.py">
+    <entry file="file://$PROJECT_DIR$/linearRegressionComp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6451613">
-          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.53028893">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="33" />
+>>>>>>> c80ebc48458e2be4e36e06624b6aeb686ac1f156
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#3914#3927#0" expanded="false" />
           </folding>
         </state>
       </provider>
