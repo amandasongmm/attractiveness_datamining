@@ -82,13 +82,14 @@ def plain_linear_regression(orig_feature_arr, full_rating, p):  # feature_arr: 2
         [np.nanmean(x, axis=1) for x in
          [corr_train, mae_train, mse_train, r_score_train, corr_test, mae_test, mse_test, r_score_test]]
 
-    model_summary = make_dict(corr_train=corr_train, mae_train=mae_train,
-                              mse_train=mse_train, r_score_train=r_score_train,
-                              corr_test=corr_test, mae_test=mae_test,
-                              mse_test=mse_test, r_score_test=r_score_test,
-                              coef_all=coef_all, coef_back_all=coef_back_all)
-    np.savez('tmp/plain_lr_'+p.model_file_name+'_result', model_summary=model_summary)
-    return model_summary
+    # model_summary = make_dict(corr_train=corr_train, mae_train=mae_train,
+    #                           mse_train=mse_train, r_score_train=r_score_train,
+    #                           corr_test=corr_test, mae_test=mae_test,
+    #                           mse_test=mse_test, r_score_test=r_score_test,
+    #                           coef_all=coef_all, coef_back_all=coef_back_all)
+    # np.savez('tmp/plain_lr_'+p.model_file_name+'_result', model_summary=model_summary)
+    np.savez('tmp/coefficient', coef=coef_all)
+    return #model_summary
 
 
 def make_dict(**kwargs):
