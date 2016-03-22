@@ -50,5 +50,6 @@ def main():
     scatterplot(rater_array_new)
     distance_comp(rater_array_new)
 
+
 if __name__ == '__main__':
     main()
