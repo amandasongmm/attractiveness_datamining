@@ -21,7 +21,7 @@ def load_data():
     orig_rating = rating_data['full_rating'].T   # after transpose, the dimension is 200*1540
 
     # Load the feature data: This part can be replaced into other type of features
-    npz_data = np.load('tmp/original_features.npz')  # Chicago feature
+    npz_data = np.load('tmp/original_ConfiguralFeatures.npz')  # Chicago feature
     configural_feature_arr = npz_data['feature_arr']
     return configural_feature_arr, orig_rating  # 200 * 29, 200 * 1540.
 

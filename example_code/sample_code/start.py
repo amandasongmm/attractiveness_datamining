@@ -26,7 +26,7 @@ def load_rating_data(gen_new_data=False):
     full_rating = full_rating[:, 1:]
 
     # Load feature array data, only keep the actual feature arrays.
-    feature_arr = np.genfromtxt('data/allFeatures.csv', delimiter=',')[1:, :]
+    feature_arr = np.genfromtxt('data/allConfiguralFeatures.csv', delimiter=',')[1:, :]
     feature_arr = feature_arr[:, 2:]
 
     # Save the data for later direct loading.
