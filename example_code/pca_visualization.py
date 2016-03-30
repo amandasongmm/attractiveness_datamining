@@ -29,8 +29,8 @@ def calc_pca(orig_feature_arr, para_explained_var):
     # Plot the explained variance ratio by each PC.
     explained_ratio = pca.explained_variance_ratio_
 
-    # Save the data.
-    np.savez('tmp/pca_data', pca_feature_arr=pca_feature_arr, explained_ratio=explained_ratio)
+    # # Save the data.
+    # np.savez('tmp/pca_data', pca_feature_arr=pca_feature_arr, explained_ratio=explained_ratio)
     return pca_feature_arr, explained_ratio
 
 
