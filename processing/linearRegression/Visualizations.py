@@ -47,7 +47,7 @@ correlation = pd.read_csv('correlations.csv')
 variance = pd.read_csv('varianceScore.csv')
 mse = pd.read_csv('mseVals.csv')
 
-correlation = correlation.as_matrix()
+correlation = correlation['Correlation'].as_matrix()
 variance = variance.as_matrix()
 mse = mse.as_matrix()
 
@@ -117,4 +117,22 @@ ax3.set_xticks(x)
 ax3.set_xticklabels(range(1,30))
 ax3.set_xlabel('Original Features')
 ax3.set_ylabel('Weight from PCs')
+plt.show()
+
+
+
+# Show PC weights
+x = range(11)
+
+fig4 = plt.figure()
+ax4 = fig4.add_subplot(111)
+
+rect = ax4.bar(x, linRegWeights, .15)
+
+axes = plt.gca()
+
+ax4.set_xticks(x)
+ax4.set_xticklabels(range(1,11))
+ax4.set_xlabel('PCs')
+ax4.set_ylabel('Weight')
 plt.show()
