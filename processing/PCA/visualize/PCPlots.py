@@ -1,5 +1,5 @@
 """
-TwoPCPlots.py
+PCPlots.py
 
 The purpose of this script is to plot pc1 vs pc2, pc3 vs pc4
 in order to visualize the encoded information
@@ -23,27 +23,47 @@ pcs = pd.read_csv('PCA_Features.csv')
 basePath = '../../imageProcessing/paddedImages/cropped'
 
 def main():
-    # Plot PC1 vs PC2
-    x = pcs.iloc[:, 1].values
-    y = pcs.iloc[:, 2].values
-
     # Get full paths to all images
     image_paths = [basePath + str(k) + '.png' for k in range(200)]
 
+    # First run for PC 1 vs PC 2
+    z1 = 1
+    z2 = 2
+
+    # First run for all images
+    imgSet = "All Images"
+    imgs = image_paths
+
+    # Plot PC1 vs PC2
+    x = pcs.iloc[:, 1].values
+    y = pcs.iloc[:, 2].values
+    genPlot(x, y, imgs, z1, z2, imgSet)
+
+    # Plot PC1 vs PC2
+    x = pcs.iloc[:, 3].values
+    y = pcs.iloc[:, 4].values
+    z1 = 3
+    z2 = 4
+    genPlot(x, y, imgs, z1, z2, imgSet)
+
+
+def genPlot(x, y, imgs, z1, z2, imgSet):
+
+
     # Prepare the plot for putting thumbnails
     fig, ax = plt.subplots()
-    plt.xlabel('PC 1')
-    plt.ylabel('PC 2')
-    fig.suptitle('PC 1 vs PC 2, all Images')
+    plt.xlabel('PC ' + str(z1))
+    plt.ylabel('PC ' + str(z2))
+    fig.suptitle('PC ' + str(z1) + ' vs PC ' + str(z2) + ', ' + imgSet)
 
     # Add thumbnails
-    imscatter(x, y, image_paths, zoom=0.1, ax=ax)
+    imscatter(x, y, imgs, zoom=0.1, ax=ax)
 
     # Make base scatter to double check
     ax.scatter(x, y)
     plt.show()
 
-def imscatter(x, y, image_paths, ax=None, zoom=1):
+def imscatter(x, y, imgs, ax=None, zoom=1):
     if ax is None:
         ax = plt.gca()
 
@@ -56,7 +76,7 @@ def imscatter(x, y, image_paths, ax=None, zoom=1):
     # Add image overlays one by one
     i = 0
     for x0, y0 in zip(x, y):
-        image = plt.imread(image_paths[i])
+        image = plt.imread(imgs[i])
         im = OffsetImage(image, zoom=zoom)
         ab = AnnotationBbox(im, (x0, y0), xycoords='data', frameon=False)
         thumbnails.append(ax.add_artist(ab))
