@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 __author__ = 'amanda'
 
 
@@ -14,19 +15,19 @@ coef_all, coef_back_all
 '''
 
 
-def visualize_linear_model_metrics(data_summary):
-    data = {'source': ['training', 'training', 'training', 'training',
-                       'testing', 'testing', 'testing', 'testing'],
-            'metric_name': ['correlation', 'MAE', 'MSE', 'r2score',
-                            'correlation', 'MAE', 'MSE', 'r2score'],
-            'value': [np.mean(x) for x in data_summary],
-            'data_summary': data_summary}
-
-    bar = Bar(data, values='value', label='metric_name', group='source',
-              title='Linear Regression Model Performance', legend='top_right')
-    output_file("bar.html")
-    show(bar)
-    return
+# def visualize_linear_model_metrics(data_summary):
+#     data = {'source': ['training', 'training', 'training', 'training',
+#                        'testing', 'testing', 'testing', 'testing'],
+#             'metric_name': ['correlation', 'MAE', 'MSE', 'r2score',
+#                             'correlation', 'MAE', 'MSE', 'r2score'],
+#             'value': [np.mean(x) for x in data_summary],
+#             'data_summary': data_summary}
+#
+#     bar = Bar(data, values='value', label='metric_name', group='source',
+#               title='Linear Regression Model Performance', legend='top_right')
+#     output_file("bar.html")
+#     show(bar)
+#     return
 
 
 def visualize_coef_bar(coef_full):
@@ -48,7 +49,6 @@ def visualize_coef_bar(coef_full):
     ax.set_xticks(x+width)
     # ax.set_xticklabels(('PC1', 'PC2', 'PC3', 'PC4', 'PC5', 'PC6', 'PC7'))
     plt.show()
-
     return
 
 model_stats = load_data()
