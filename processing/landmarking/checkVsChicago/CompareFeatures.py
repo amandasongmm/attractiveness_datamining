@@ -23,4 +23,4 @@ for x in range(200, 202):
 
     diff = [ abs(x-y)/(y) for x,y in cur ]
     print diff
-    print sum([ x > .1 for x in diff ])
+    print sum([ x > .3 for x in diff ])
