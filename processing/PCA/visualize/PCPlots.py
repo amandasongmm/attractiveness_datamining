@@ -39,13 +39,33 @@ def main():
     y = pcs.iloc[:, 2].values
     genPlot(x, y, imgs, z1, z2, imgSet)
 
-    # Plot PC1 vs PC2
+    # Switch to only subsets
+    imgSet = 'MIT'
+    genPlot(x[0:49], y[0:49], imgs[0:49], z1, z2, imgSet)
+    imgSet = 'GS'
+    genPlot(x[50:99], y[50:99], imgs[50:99], z1, z2, imgSet)
+    imgSet = 'NGS'
+    genPlot(x[100:149], y[100:149], imgs[100:149], z1, z2, imgSet)
+    imgSet = 'GH'
+    genPlot(x[150:199], y[150:199], imgs[150:199], z1, z2, imgSet)
+
+    # Plot PC3 vs PC4
+    imgSet = 'All Images'
     x = pcs.iloc[:, 3].values
     y = pcs.iloc[:, 4].values
     z1 = 3
     z2 = 4
     genPlot(x, y, imgs, z1, z2, imgSet)
 
+    # Switch to only subsets
+    imgSet = 'MIT'
+    genPlot(x[0:49], y[0:49], imgs[0:49], z1, z2, imgSet)
+    imgSet = 'GS'
+    genPlot(x[50:99], y[50:99], imgs[50:99], z1, z2, imgSet)
+    imgSet = 'NGS'
+    genPlot(x[100:149], y[100:149], imgs[100:149], z1, z2, imgSet)
+    imgSet = 'GH'
+    genPlot(x[150:199], y[150:199], imgs[150:199], z1, z2, imgSet)
 
 def genPlot(x, y, imgs, z1, z2, imgSet):
 

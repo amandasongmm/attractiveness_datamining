@@ -1,13 +1,12 @@
 """
-PCPlots.py
+OneDim.py
 
-The purpose of this script is to plot pc1 vs pc2, pc3 vs pc4
-in order to visualize the encoded information
+The purpose of this script is to plot pc1 in one dimension
 
 Built for Python2 in order to work best with machine learning libraries.
 
 Author: Chad Atalla
-Date:   4/01/2016
+Date:   4/6/2016
 """
 
 import numpy as np
@@ -34,27 +33,9 @@ def main():
     imgSet = "All Images"
     imgs = image_paths
 
-    # Plot PC1 vs PC2
+     # Plot PC1 vs PC2
     x = pcs.iloc[:, 1].values
-    y = pcs.iloc[:, 2].values
-    genPlot(x, y, imgs, z1, z2, imgSet)
-
-    # Switch to only subsets
-    imgSet = 'MIT'
-    genPlot(x[0:49], y[0:49], imgs[0:49], z1, z2, imgSet)
-    imgSet = 'GS'
-    genPlot(x[50:99], y[50:99], imgs[50:99], z1, z2, imgSet)
-    imgSet = 'NGS'
-    genPlot(x[100:149], y[100:149], imgs[100:149], z1, z2, imgSet)
-    imgSet = 'GH'
-    genPlot(x[150:199], y[150:199], imgs[150:199], z1, z2, imgSet)
-
-    # Plot PC3 vs PC4
-    imgSet = 'All Images'
-    x = pcs.iloc[:, 3].values
-    y = pcs.iloc[:, 4].values
-    z1 = 3
-    z2 = 4
+    y = [1] * len(x)
     genPlot(x, y, imgs, z1, z2, imgSet)
 
     # Switch to only subsets
@@ -73,11 +54,10 @@ def genPlot(x, y, imgs, z1, z2, imgSet):
     # Prepare the plot for putting thumbnails
     fig, ax = plt.subplots()
     plt.xlabel('PC ' + str(z1))
-    plt.ylabel('PC ' + str(z2))
     fig.suptitle('PC ' + str(z1) + ' vs PC ' + str(z2) + ', ' + imgSet)
 
     # Add thumbnails
-    imscatter(x, y, imgs, zoom=0.1, ax=ax)
+    imscatter(x, y, imgs, zoom=0.3, ax=ax)
 
     # Make base scatter to double check
     ax.scatter(x, y)
