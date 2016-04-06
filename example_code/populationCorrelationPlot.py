@@ -1,52 +1,49 @@
 import numpy as np
-import scipy.stats as ss
-import pandas as pd
 import matplotlib.pyplot as plt
+import time
 __author__ = 'amanda'
 
 
-def load_data():
-    # Load the rating data
-    rating_data = np.load('tmp/clean_rating_data.npz')
-    orig_rating = rating_data['full_rating']   # after transpose, the dimension is 200*1540
-    return orig_rating  # 1540*200
+def load_data(correlation_key):
+    if correlation_key == 'pearson':
+        filepath = 'tmp/pearsonCorrelation.npz'
+    elif correlation_key == 'spearman':
+        filepath = 'tmp/spearmanRankCorrelation.npz'
+    else:
+        print 'check the data path or your key name.'
+    tmp_data = np.load(filepath)
+    corr = tmp_data['corr']   # 1540 * 1540
+    pvalue = tmp_data['pvalue']
+    return corr, pvalue  # 1540*1540
 
 
-def comp_pearson():
-    orig_rating = load_data()
-    rater_num = orig_rating.shape[0]
-    corr = np.ones((rater_num, rater_num))
-    pvalue = np.ones((rater_num, rater_num))
-
-# compute the upper triangle
-    for rater_1 in range(rater_num):
-        print 'Now computing row{}...\n'.format(rater_1+1)
-        for rater_2 in range(rater_1+1, rater_num):
-            rating_1 = orig_rating[rater_1, :]
-            rating_2 = orig_rating[rater_2, :]
-            corr[rater_1, rater_2], pvalue[rater_1, rater_2] = ss.pearsonr(rating_1, rating_2)
-
-# fill in the whole matrix
-    irows, icols = np.triu_indices(len(corr), 1)
-    corr[icols, irows] = corr[irows, icols]
-    pvalue[icols, irows] = pvalue[irows, icols]
-    return corr, pvalue
-
-
-def plot_correlation_heatmap():
-    cor_arr, pvalue_arr = comp_pearson()
+def plot_correlation_heatmap(key):
+    cor_arr, pvalue_arr = load_data(key)
     cor_arr[np.where(pvalue_arr > 0.05)] = 0
-
+    print 'Data loading done. Now start ploting...\n'
+    start = time.time()
     fig, ax = plt.subplots()
-    heatmap = ax.pcolor(cor_arr, cmap=plt.cm.bwr, alpha=0.8)
-    ax.set_yticks(np.arange(cor_arr.shape[0]), minor=False)
-    ax.set_xticks(np.arange(cor_arr.shape[1]), minor=False)
+    heatmap = ax.pcolor(cor_arr, cmap=plt.cm.bwr, alpha=0.8, vmin=-1, vmax=1)
     plt.colorbar(heatmap)
-    plt.show()
-    plt.savefig('test.jpg', dpi=120, pad_inches=30)
+    plt.title(key+' Correlation Heatmap')
+    plt.savefig('./correlationMap/'+key)
+    end = time.time()
+    print 'time elapsed = '+str(end-start) + ' sec'
     return
 
-plot_correlation_heatmap()
+
+def cal_average_corr(key):
+    corr, pvalue = load_data(key)
+    corr_mean = np.mean(corr[np.where(pvalue < 0.05)])
+    print 'The {} correlation is: {:.2f}'.format(key, corr_mean)
+
+# plot_correlation_heatmap('pearson')
+# plot_correlation_heatmap('spearman')
+cal_average_corr('pearson')
+cal_average_corr('spearman')
+
+
+
 
 
 # def cal_population_rank_correlation():  # with p value return, but that's too slow.

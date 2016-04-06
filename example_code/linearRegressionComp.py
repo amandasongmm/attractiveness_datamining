@@ -28,10 +28,10 @@ def load_data():
 
 def plain_linear_regression(orig_feature_arr, full_rating, p):  # feature_arr: 200*7, full_rating: 200* 1540
 
-    # Step 1: Do PCA on orig feature, keep 95% variance
-    feature_arr = preprocessing.scale(orig_feature_arr)  # preprocessing
-    pca = PCA(n_components=p.explained_var)  # Do pca
-    feature_arr = pca.fit_transform(feature_arr)
+    ''' Step 1: Do PCA on orig feature, keep 95% variance  '''
+    # feature_arr = preprocessing.scale(orig_feature_arr)  # preprocessing
+    pca = PCA(n_components=p.explained_var, whiten=True)  # Do pca
+    feature_arr = pca.fit_transform(orig_feature_arr)
 
     '''  Step 2: k-fold train-test split '''
     # Initialize parameters to save.
