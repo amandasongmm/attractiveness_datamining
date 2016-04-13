@@ -31,7 +31,7 @@ npData = data.as_matrix()
 # Label:   RunPCA
 # Purpose: Run PCA on the features to determine dimensionality
 #
-pca = PCA(n_components=.99)
+pca = PCA(n_components=.95)
 newFeatures = pca.fit_transform(npData)
 
 # Put the new feature matrix into a dataframe
