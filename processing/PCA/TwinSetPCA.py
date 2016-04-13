@@ -15,7 +15,7 @@ import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
 
-
+NUM_FEATS = 32
 
 #
 # Label:   LoadData
@@ -40,7 +40,7 @@ newData = pd.DataFrame(newFeatures)
 # Calculate the primary component compositions
 allPC = PCA()
 allPCs = allPC.fit_transform(npData)
-identity = np.identity(29) # For 29 initial features
+identity = np.identity(NUM_FEATS) 
 composition = pd.DataFrame(allPC.transform(identity))
 
 
