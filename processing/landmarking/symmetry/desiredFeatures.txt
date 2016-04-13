@@ -1,0 +1,36 @@
+The list of desired features and their compositions:
+
+Extracted from the paper
+"Facial Attractiveness: Symmetry and Averageness"
+
+----------------------------------------------------
+
+Facial Asymmetry (FA) and Central Facial Asymmetry (CFA)
+depend on having midpoints of 6 horizontal lines, m1, ... m6
+
+m1 = ((p36 - p45) / 2) + p45
+m2 = ((p39 - p42) / 2) + p42
+m3 = ((p0 - p16) / 2) + p16
+m4 = ((p31 - p35) / 2) + p35
+m5 = ((p4 - p12) / 2) + p12
+m6 = ((p48 - p54) / 2) + p54
+
+FA = sum(abs(m1-m2), abs(m1-m3), abs(m1-m4), abs(m1-m5), abs(m1-m6), abs(m2-m3), abs(m2-m4), abs(m2-m5), abs(m2-m6), abs(m3-m4), abs(m3-m5), abs(m3-m6), abs(m4-m5), abs(m4-m6), abs(m5-m6))
+
+CFA = sum(abs(m1-m2), abs(m2-m3), abs(m3-m4), abs(m4-m5), abs(m5-m6))
+
+----------------------------------------------------
+
+For averageness:
+l1 = length p36 to p45
+l2 = length p39 to p42
+l3 = length p0 to p16
+l4 = length p31 to p35
+l5 = length p4 to p12
+l6 = length p48 to p54
+lh = length (p8 to m1) to (p8 to m5)
+
+Average these across all faces.
+
+Record feature as
+Avg = sum(abs(l1, l1A), abs(l2, l2A), abs(l3, l3A), abs(l4, l4A), abs(l5, l5A), abs(l6, l6A), abs(lh, lhA))
