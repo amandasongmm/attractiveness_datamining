@@ -23,4 +23,8 @@ for x in range(200, 202):
 
     diff = [ abs(x-y)/(y) for x,y in cur ]
     print diff
+    print ''
+    print zip(([ x > .3 for x in diff ]), mine.columns)
+    print ''
     print sum([ x > .3 for x in diff ])
+    print ''
