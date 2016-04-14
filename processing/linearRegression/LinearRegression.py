@@ -18,7 +18,7 @@ import math
 from sklearn import linear_model
 
 
-NUM_PCS = 11
+NUM_PCS = 9
 
 
 # Load in the 6 PCs for image features
@@ -66,7 +66,7 @@ for row, index in yData.iterrows():
     i = i + 1
 
 coefficients.to_csv('linearCoefficients.csv', index=False)
-varScore.to_csv('varianceScore.csv', index=False)
-MSEs.to_csv('mseVals.csv', index=False)
+varScore.to_csv('varianceScore.csv', index=False, header="0")
+MSEs.to_csv('mseVals.csv', index=False, header="0")
 predicted.to_csv('predictedRatings.csv', index=False)
-correlation.to_csv('correlations.csv', index=False)
+correlation.to_csv('correlations.csv', index=False, header="0")

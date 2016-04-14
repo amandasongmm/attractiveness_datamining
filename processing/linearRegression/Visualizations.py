@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-NUM_PCS = 11
+NUM_PCS = 9
 
 
 #
@@ -47,9 +47,9 @@ correlation = pd.read_csv('correlations.csv')
 variance = pd.read_csv('varianceScore.csv')
 mse = pd.read_csv('mseVals.csv')
 
-correlation = correlation['Correlation'].as_matrix()
-variance = variance.as_matrix()
-mse = mse.as_matrix()
+correlation = correlation['0'].as_matrix()
+variance = variance['0'].as_matrix()
+mse = mse['0'].as_matrix()
 
 results = np.array((np.mean(correlation), np.mean(variance), np.mean(mse)))
 resultsDev = np.array((np.std(correlation), np.std(variance), np.std(mse)))
