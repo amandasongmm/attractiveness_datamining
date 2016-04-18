@@ -19,7 +19,8 @@ def do_pca(feature_arr, explained_var=0.99):
     feature_arr = preprocessing.scale(feature_arr)
 
     # Compute PCA features
-    pca = PCA(n_components=explained_var, whiten=True)
+    # pca = PCA(n_components=explained_var, whiten=True)
+    pca = PCA(n_components=explained_var, whiten=False)
     pca_feature_arr = pca.fit_transform(feature_arr)
     sorted_ind = np.argsort(pca_feature_arr, axis=0)
     return pca_feature_arr, sorted_ind
@@ -44,7 +45,7 @@ def my_main(cur_pc):
         image_list = ujson.load(data_file)
 
     feature_list = load_feature_data('tmp/original_ConfiguralFeatures.npz')
-    for cur_dataset_ind in range(4):
+    for cur_dataset_ind in range(1):
         sub_fea = feature_list[0+cur_dataset_ind*50:50+cur_dataset_ind*50, :]
         pca_fea, sorted_ind = do_pca(sub_fea)
 
@@ -55,5 +56,5 @@ def my_main(cur_pc):
     return pca_fea, sorted_ind
 
 
-for pc_num in range(1, 4):
+for pc_num in range(1):
     my_main(pc_num)
