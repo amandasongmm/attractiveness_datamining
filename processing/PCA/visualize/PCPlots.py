@@ -35,8 +35,8 @@ def main():
     imgs = image_paths
 
     # Plot PC1 vs PC2
-    x = pcs.iloc[:, 1].values
-    y = pcs.iloc[:, 2].values
+    x = pcs.iloc[:, 0].values
+    y = pcs.iloc[:, 1].values
     genPlot(x, y, imgs, z1, z2, imgSet)
 
     # Switch to only subsets
@@ -51,8 +51,8 @@ def main():
 
     # Plot PC3 vs PC4
     imgSet = 'All Images'
-    x = pcs.iloc[:, 3].values
-    y = pcs.iloc[:, 4].values
+    x = pcs.iloc[:, 2].values
+    y = pcs.iloc[:, 3].values
     z1 = 3
     z2 = 4
     genPlot(x, y, imgs, z1, z2, imgSet)

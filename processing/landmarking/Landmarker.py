@@ -22,7 +22,7 @@ import numpy as np
 
 
 # Set this flag to 1 in order to visualize results
-VISUALIZE = 0
+VISUALIZE = 1
 
 
 

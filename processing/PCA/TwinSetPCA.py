@@ -15,7 +15,7 @@ import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
 
-
+NUM_FEATS = 32
 
 #
 # Label:   LoadData
@@ -31,7 +31,7 @@ npData = data.as_matrix()
 # Label:   RunPCA
 # Purpose: Run PCA on the features to determine dimensionality
 #
-pca = PCA(n_components=.99)
+pca = PCA(n_components=.95)
 newFeatures = pca.fit_transform(npData)
 
 # Put the new feature matrix into a dataframe
@@ -40,7 +40,7 @@ newData = pd.DataFrame(newFeatures)
 # Calculate the primary component compositions
 allPC = PCA()
 allPCs = allPC.fit_transform(npData)
-identity = np.identity(29) # For 29 initial features
+identity = np.identity(NUM_FEATS) 
 composition = pd.DataFrame(allPC.transform(identity))
 
 

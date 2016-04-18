@@ -1,13 +1,15 @@
 """
 OneDim.py
 
-The purpose of this script is to plot pc1 in one dimension
+The purpose of this script is to plot a pc in one dimension
 
 Built for Python2 in order to work best with machine learning libraries.
 
 Author: Chad Atalla
 Date:   4/6/2016
 """
+
+CHOICE = 5
 
 import numpy as np
 import pandas as pd
@@ -26,35 +28,34 @@ def main():
     image_paths = [basePath + str(k) + '.png' for k in range(200)]
 
     # First run for PC 1 vs PC 2
-    z1 = 1
-    z2 = 2
+    z1 = CHOICE
 
     # First run for all images
     imgSet = "All Images"
     imgs = image_paths
 
      # Plot PC1 vs PC2
-    x = pcs.iloc[:, 1].values
+    x = pcs.iloc[:, (z1-1)].values
     y = [1] * len(x)
-    genPlot(x, y, imgs, z1, z2, imgSet)
+    genPlot(x, y, imgs, z1, imgSet)
 
     # Switch to only subsets
     imgSet = 'MIT'
-    genPlot(x[0:49], y[0:49], imgs[0:49], z1, z2, imgSet)
+    genPlot(x[0:49], y[0:49], imgs[0:49], z1, imgSet)
     imgSet = 'GS'
-    genPlot(x[50:99], y[50:99], imgs[50:99], z1, z2, imgSet)
+    genPlot(x[50:99], y[50:99], imgs[50:99], z1, imgSet)
     imgSet = 'NGS'
-    genPlot(x[100:149], y[100:149], imgs[100:149], z1, z2, imgSet)
+    genPlot(x[100:149], y[100:149], imgs[100:149], z1, imgSet)
     imgSet = 'GH'
-    genPlot(x[150:199], y[150:199], imgs[150:199], z1, z2, imgSet)
+    genPlot(x[150:199], y[150:199], imgs[150:199], z1, imgSet)
 
-def genPlot(x, y, imgs, z1, z2, imgSet):
+def genPlot(x, y, imgs, z1, imgSet):
 
 
     # Prepare the plot for putting thumbnails
     fig, ax = plt.subplots()
     plt.xlabel('PC ' + str(z1))
-    fig.suptitle('PC ' + str(z1) + ' vs PC ' + str(z2) + ', ' + imgSet)
+    fig.suptitle('PC ' + str(z1) + ', ' + imgSet)
 
     # Add thumbnails
     imscatter(x, y, imgs, zoom=0.3, ax=ax)
