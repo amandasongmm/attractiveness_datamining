@@ -15,9 +15,19 @@ import scipy.stats as stats
 
 # Load up originals
 orig = pd.read_csv('OrigVector.csv')
+# Remove bad indexes from Amanda
+for x in [90, 93, 337, 417]:
+    orig = orig[orig.pair_nums != x]
+pair_nums = orig['pair_nums']
+orig = orig.drop('pair_nums', 1)
+
 
 # Load up repeats
 repeat = pd.read_csv('RepeatVector.csv')
+# Remove bad indexes from Amanda
+for x in [90, 93, 337, 417]:
+    repeat = repeat[repeat.pair_nums != x]
+repeat = repeat.drop('pair_nums', 1)
 
 # Track results
 pearsons = []
@@ -28,13 +38,11 @@ for x,y in zip(orig.values.tolist(), repeat.values.tolist()):
    pearsons.append(stats.pearsonr(x,y)[0])
    spearmans.append(stats.spearmanr(x,y)[0])
 
-# Handle bad data
-for x in (np.where((np.isnan(spearmans)) == True)[0].tolist()):
-    del spearmans[x]
-x = 0
-for k in (np.where((np.isnan(pearsons)) == True)[0].tolist()):
-    del pearsons[k-x]
-    x += 1
+# Save lists
+pearsonVals = pd.DataFrame(dict(pair = pair_nums, pears = pearsons))
+spearmanVals = pd.DataFrame(dict(pair = pair_nums, spears = spearmans))
+pearsonVals.to_csv('pearsonVals.csv', index=False)
+spearmanVals.to_csv('spearmanVals.csv', index=False)
 
 # Calculate averages
 print "Pearsonr Average: " + str(np.mean(pearsons))
