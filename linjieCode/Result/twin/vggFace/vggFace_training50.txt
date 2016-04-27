@@ -1,0 +1,4 @@
+Training Accuracy
+Residual sum of squares: 0.61
+Variance score is: -15.60
+Correlation between predicted ratings and actual ratings is: 0.5556
