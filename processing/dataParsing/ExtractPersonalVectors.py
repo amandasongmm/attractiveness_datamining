@@ -42,7 +42,8 @@ twin2.columns = twin1.columns
 origTwins = twin1.append(twin2)
 
 # Save dataframes
-origTwins.to_csv('OrigVector.csv', index=False)
+origTwins.index.name = 'pair_nums'
+origTwins.to_csv('OrigVector.csv')
 
 # Ordering is ALL of twin1, then ALL of twin2
 twin2 = pd.DataFrame(repeatData[range(60,120)])
@@ -56,4 +57,5 @@ twin2.columns = twin1.columns
 repeatTwins = twin1.append(twin2)
 
 # Save dataframes
-repeatTwins.to_csv('RepeatVector.csv', index=False)
+repeatTwins.index.name = 'pair_nums'
+repeatTwins.to_csv('RepeatVector.csv')
