@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+<title>Face Attractiveness - Set 4</title>
+
+
+<style type="text/css">
+
+body {
+	margin: 0 auto;
+	text-align:center;
+}
+
+#main {
+	width:600px;
+	text-align:center;
+	margin:0 auto;
+}
+	
+table {
+	text-align:center;
+	margin:0 auto;
+	table-layout:fixed;
+	font-weight:bold;
+	font-size:14pt;
+	
+}
+
+td {
+	width:100px;
+	
+}
+
+h4 {
+	font-variant:small-caps;
+	font-size:16pt;
+}
+
+</style>
+<SCRIPT language="Javascript">
+   <!--
+   var ITIDur = 200;
+   var ISIval = 100;
+   var cycleDur = 300;
+   var trialNumber = 0;
+   var totalTrials = 65;
+   var cycleNumber = 0;
+   response_keys = new Array(1,2,3,4,5,6,7);
+   trialRTs = 0;
+   trialRatings = new Array();
+   imageNames = new Array();
+   imagePres = new Array();
+   cyclePres = new Array();
+   var imageStartTime;
+   var imageEndTime;
+   var rtStartTime;
+   var rtEndTime;
+   var cycleStartTime;
+   var cycleEndTime;
+   totalResults = new Array();
+   var maleSum = 0;
+   var femaleSum = 0;
+   var ratingSum = 0;
+
+   
+
+   /** Preload all images.  In this experiment, images have regular nomenclature **/
+   
+   picFiles = new Array("","gh/males/m1.jpg","gh/males/m21.jpg","gh/males/m33.jpg","gh/males/m3.jpg","gh/females/f8.jpg","gh/females/f22.jpg","gh/females/f4.jpg","gh/males/m22.jpg","gh/males/m26.jpg","gh/females/f5.jpg","gh/females/f20.jpg","gh/males/m23.jpg","gh/males/m28.jpg","gh/females/f34.jpg","gh/males/m34.jpg","gh/females/f6.jpg","gh/males/m30.jpg","gh/females/f33.jpg","gh/males/m35.jpg","gh/females/f18.jpg","gh/females/f23.jpg","gh/females/f31.jpg","gh/males/m16.jpg","gh/females/f29.jpg","gh/females/f11.jpg","gh/females/f10.jpg","gh/females/f7.jpg","gh/females/f15.jpg","gh/females/f28.jpg","gh/females/f17.jpg","gh/males/m11.jpg","gh/males/m25.jpg","gh/males/m6.jpg","gh/males/m4.jpg","gh/females/f26.jpg","gh/males/m15.jpg","gh/males/m7.jpg","gh/males/m31.jpg","gh/females/f69.jpg","gh/females/f42.jpg","gh/males/m48.jpg","gh/males/m39.jpg","gh/females/f37.jpg","gh/females/f49.jpg","gh/females/f54.jpg","gh/females/f36.jpg","gh/males/m59.jpg","gh/females/f57.jpg","gh/females/f41.jpg","gh/males/m69.jpg","gh/males/m33.jpg","gh/females/f22.jpg","gh/males/m26.jpg","gh/males/m23.jpg","gh/males/m34.jpg","gh/females/f33.jpg","gh/females/f23.jpg","gh/females/f29.jpg","gh/females/f7.jpg","gh/females/f17.jpg","gh/males/m6.jpg","gh/males/m15.jpg","gh/females/f69.jpg","gh/females/f37.jpg","gh/males/m59.jpg");
+picLoaded = new Array();
+   
+   function preload_pics(picList)
+{
+document.getElementById("progress").innerHTML = "<font color='red'>LOADING FILES...</font>";	
+
+	for (i=1;i<=totalTrials;i++) {
+		picLoaded[i] = new Image();
+		picLoaded[i].src = picList[i];
+	}
+	document.getElementById("progress").innerHTML = "";
+   document.onkeyup = getKeyInst;
+}
+
+
+
+
+   
+   fixation = new Image();
+   fixation.src = "white.jpg"; 
+   
+ 
+   
+  function getKeyInst(keyStroke) {
+  isNetscape=(document.layers);
+  keyID = (window.event) ? event.keyCode : keyStroke.keyCode;
+  eventChooser = (isNetscape) ? keyStroke.which : keyID;
+  which = eventChooser;
+  if (which == 32) {
+  //console.log(trialNumber+" - Keypress:"+which);
+       trialNumber = trialNumber + 1;
+       document.getElementById('instructions').innerHTML = "";
+       document.getElementById('titleText').innerHTML = "";
+       document.getElementById('warning').innerHTML = "";
+      //document.getElementById('titleText').style.margin-top.value = "150px"; 
+       document.onkeyup=getKeyNone;
+       timerID = setTimeout("cycle_faces()",ITIDur);
+  } 
+}
+
+function cycle_faces() {
+
+document.getElementById("test_title").innerHTML = "";
+	cycleNumber = cycleNumber + 1;
+	if (cycleNumber > 51) {
+		new_face();
+	} else {
+		
+	//console.log("here0");
+		document.getElementById('stimulus').src = picLoaded[cycleNumber].src;
+		
+	//console.log("here02");
+		cycleStartTime = new Date();
+	
+	//console.log("here03");
+		timerID2 = setTimeout("intercycle()",cycleDur)
+	}
+}
+	
+function intercycle() {
+	
+	cycleEndTime = new Date();
+	cyclePres[cycleNumber] = cycleEndTime - cycleStartTime;
+	document.getElementById('stimulus').src = fixation.src;
+	//document.getElementById('stimulus').height.value = 240;
+	timerID3 = setTimeout("cycle_faces()",ISIval);
+}
+	
+	
+function getKeyNone(keyStroke) {
+}
+   
+function new_face() {
+	
+	//console.log("here2");
+	document.getElementById('stimulus').src = picLoaded[trialNumber].src;
+	document.getElementById('titleText').innerHTML = "<table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td>very unattractive</td><td></td><td></td><td></td><td></td><td></td><td>very attractive</td></tr></table>";
+        document.getElementById('warning').innerHTML = "Do not click BACK/RELOAD. If you have trouble responding, try clicking on your browser window, using the numbers on your main keyboard, or holding down CTRL or SHIFT while you respond.";
+	document.getElementById('progress').innerHTML = "<h2>Please rate: Face " + trialNumber + " / 65 </h2>";
+	imageStartTime = new Date();
+	rtStartTime = new Date();
+	document.onkeyup = getKeyFace;
+	
+}
+function getKeyFace(keyStroke) {
+	 isNetscape=(document.layers);
+  keyID = (window.event) ? event.keyCode : keyStroke.keyCode;
+  eventChooser = (isNetscape) ? keyStroke.which : keyID;
+  which = String.fromCharCode(eventChooser);
+  //console.log(trialNumber+" - Keypress:"+which);
+  if (isLegalKey(which)) {	  
+	  rtEndTime = new Date();
+	  var currentRT = rtEndTime-rtStartTime;
+	  trialRTs = trialRTs + currentRT;
+	  trialRatings[trialNumber] = parseInt(which);
+	  picName = picLoaded[trialNumber];
+	  /**if (picName.match(/female/)) {
+		  femaleSum = trialRatings[trialNumber] + femaleSum;
+		  //console.log("female");
+	  } else {
+		  maleSum = trialRatings[trialNumber] + maleSum;
+	  }**/
+	  ratingSum = trialRatings[trialNumber] + ratingSum;
+	  imageNames[trialNumber] = picLoaded[trialNumber];
+	  document.getElementById('stimulus').src = "white.jpg";
+	  imageEndTime = new Date();
+	  imagePres[trialNumber] = imageEndTime - imageStartTime;
+	  trialNumber = trialNumber + 1;
+	  //console.log(trialNumber+" - Rating:"+trialRatings[trialNumber]);
+	  if (trialNumber > totalTrials) {
+		  save_data();
+	  } else {
+       document.onkeyup=getKeyNone;
+       timerID = setTimeout("new_face()",ITIDur);
+	  }
+  }
+} 
+	
+	
+function isLegalKey(theKey) {
+	  for (k = 0; k < response_keys.length ; k++) {
+		  if (response_keys[k] == which) {
+			  return true;
+		  }
+	  }
+	  return false;
+}
+
+function save_data() {
+	//totalResults[6] = "imageNames:"+imageNames.join(" ");
+	//var maleAve = maleSum / 46;
+	//totalResults[2] = "maleAve:"+maleAve;
+	//var femaleAve = femaleSum / 49;
+	//totalResults[3] = "femaleAve:"+femaleAve;
+	//totalResults[1] = "imagePres:"+imagePres.join(" ");
+
+	document.DataCollect.score.value = JSON.stringify(ratingSum / 65);
+	totalResults.push({trialRatings:JSON.stringify(trialRatings)});
+	totalResults.push({trialRTs:trialRTs});
+        document.DataCollect.data.value = JSON.stringify(totalResults);
+        document.DataCollect.submit();	
+	//document.getElementById('totalResults').value = totalResults.join("\n");
+	//document.DataCollect.submit();
+	//console.log(document.getElementById('totalResults').value);
+}
+   //-->
+   </SCRIPT>
+   
+   </head>
+  <body>
+   	<div id="main">
+		<p><img src="dot.jpg" name="stimulus" id="stimulus"></p>
+		<h2 id="test_title">Face Attractiveness</h2>
+		
+		<div id="progress"></div>
+		<p id="instructions"> 
+			As before, you will rate the attractiveness of 65 faces on a scale of 1 to 7, by pressing the corresponding number keys on your main keyboard (that is, the number keys that lie above the top line of letters).  These faces will be different from the ones you saw before. The scale you will use looks like this:<br><br>
+	<table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+		<tr><td>very unattractive</td><td></td><td></td><td></td><td></td><td></td><td>very attractive</td></tr></table><br><br>
+		First, however, you will see these faces in rapid succession.  While you are viewing these faces, consider how attractive or unattractive the faces are.  Once the faces stop automatically changing, you can start making your responses.  When you rate the faces during the actual test, <b>rate the faces in terms of the range of attractiveness in this set</b> only.  For example, try to give the face you consider most attractive in this set a 7, even if you have seen other faces elsewhere that you consider more attractive.<br><br>
+		Press <b>SPACE</b> to begin.
+		</p>
+		<h1 id="titleText"></h1>
+ <div id="warning" style="text-align:left;color:#FF0000"><b>Do not click BACK/RELOAD.</b> If you have trouble responding, try clicking on your browser window, using the numbers on your main keyboard, or holding down CTRL or SHIFT while you respond.</div>
+	<div>
+	
+	<SCRIPT language="Javascript">
+   <!--
+   
+preload_pics(picFiles);
+   //-->
+   </SCRIPT>
+   <!--Contains all data to be passed on and saved in the form of hidden variables. -->    
+<form id="DataCollect" name="DataCollect" action="/run.php" method="POST">
+		<input type="hidden" id="data" name="data" />
+		<input type="hidden" id="score" name="score" value="0" />
+	</form>
+   </body>
+   </html>
+
