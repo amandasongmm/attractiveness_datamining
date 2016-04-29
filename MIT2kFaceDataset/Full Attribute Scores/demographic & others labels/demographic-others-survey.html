@@ -1,0 +1,177 @@
+<p><style type="text/css">
+	table.questions {
+		border-width: 1px;
+		border-spacing: 2px;
+		border-style: solid;
+		border-collapse: separate;
+		background-color: #E6DCE7;
+	}
+	table.questions td {
+		border-width: 1px;
+		border-style: solid;
+		padding: 4px;
+	}
+</style></p>
+<script type = "text/javascript">
+	
+	var q = [];
+	var finished = 0;
+	
+	// the questions
+	
+	q[0] = '<b>Gender?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  What gender does this person appear to be? If you are unsure, please guess.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="male" value="1" />Male&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="male" value="0" />Female';
+
+	q[1] = '<b>Race?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  What race does this person appear to be? If you are unsure, please guess.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="race" value="1" />White&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="2" />Black&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="3" />East Asian&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="4" />South Asian&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="5" />Hispanic&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="6" />Middle Eastern&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="race" value="0" />Other';
+	
+	q[2] = '<b>Age?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  What age range does this person appear to be in? If you are unsure, please guess.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="age" value="1" /><20&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="age" value="2" />20-30&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="age" value="3" />30-45&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="age" value="4" />45-60&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="age" value="5" />60+';
+
+	q[3] = '<b>Emotion?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  What emotion does this person appear to be showing? If you are unsure, please indicate Neutral.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="emotion" value="6" />Disgust&nbsp;&nbsp;<input type="radio" onClick="swapColor(this)" name="emotion" value="1" />Happiness&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emotion" value="2" />Sadness&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emotion" value="3" />Anger&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emotion" value="4" />Fear&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emotion" value="5" />Surprise&nbsp;&nbsp;<input type="radio" onClick="swapColor(this)" name="emotion" value="0" />Neutral ';
+
+	q[4] = '<b><i>Eyes</i> direction?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  Which direction are this persons eyes looking, from your perspective? If you are unsure, please indicate At Me.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="eyes" value="1" />At you&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="eyes" value="2" /> Up&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="eyes" value="3" />Down&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="eyes" value="4" />Left (of screen)&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="eyes" value="5" />Right (of screen)';
+
+	q[5] = '<b><i>Face</i> direction?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  What direction is this persons face pointed, from your perspective? If you are unsure, please indicate At Me.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="face" value="1" />At you&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="face" value="2" /> Up&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="face" value="3" />Down&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="face" value="4" />Left (of screen)&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="face" value="5" />Right (of screen)';
+
+	q[6] = '<b>Facial hair?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How much facial hair (mustache, beard) does this person have? If you are unsure, please indicate None.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="facialhair" value="2" />A lot&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="facialhair" value="1" />A little&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="facialhair" value="0" />None';
+
+	q[7] = '<b>Makeup?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How much makeup does it look like this person is wearing? If you are unsure, please indicate None.\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="makeup" value="2" />A lot&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="makeup" value="1" />A little&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="makeup" value="0" />None';
+	
+	q[8] = '<b>How attractive is this face?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How attractive do you think this face is?\')"><font size=1.5 color="blue">[?]</font></a><br> Unattractive&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="attractive" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="attractive" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="attractive" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="attractive" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="attractive" value="5" />5&nbsp;&nbsp; Attractive';
+	
+	q[9] = '<b>How much emotion is in this face?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How much emotion does this face seem to have?\')"><font size=1.5 color="blue">[?]</font></a><br> Little:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emoteMag" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emoteMag" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emoteMag" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emoteMag" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="emoteMag" value="5" />5&nbsp;&nbsp; A lot';
+
+	q[10] = '<b>How memorable is this face?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How easy do you think it is to remember this face?\')"><font size=1.5 color="blue">[?]</font></a><br> Forgettable:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="remember" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="remember" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="remember" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="remember" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="remember" value="5" />5&nbsp;&nbsp; Memorable';
+
+	q[11] = '<b>Is this person famous?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  Is this a famous person?\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="celeb" value="2" />Yes&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="celeb" value="1" />Maybe&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="celeb" value="0" />No';
+
+	q[12] = '<b>What color is the frame of the picture?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  There is a colored rectangle around the picture. What color is it?\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this);this.value=colorMatch(4)" name="frame" value="colorVigilance" />Grey&nbsp;&nbsp; <input type="radio" onClick="swapColor(this);this.value=colorMatch(3)" name="frame" value="colorVigilance" />Blue&nbsp;&nbsp; <input type="radio" onClick="swapColor(this);this.value=colorMatch(1)" name="frame" value="colorVigilance" />Red&nbsp;&nbsp; <input type="radio" onClick="swapColor(this);this.value=colorMatch(2)" name="frame" value="colorVigilance" />Green';
+	
+	q[13] = '<b>How common is this face?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How common is this face?\')"><font size=1.5 color="blue">[?]</font></a><br> Uncommon:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="common" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="common" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="common" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="common" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="common" value="5" />5&nbsp;&nbsp; Common';
+
+	q[14] = '<b>How much teeth showing?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  Is this person showing their teeth? If yes, is it a lot (lips wide open) or a little (lips slightly open)?\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="teeth" value="2" />A lot&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="teeth" value="1" />A little&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="teeth" value="0" />None';
+
+	q[15] = '<b>Image quality?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How good/poor is the image quality of the photograph itself?\')"><font size=1.5 color="blue">[?]</font></a><br> Poor:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="quality" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="quality" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="quality" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="quality" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="quality" value="5" />5&nbsp;&nbsp; Very good';
+	
+	q[16] = '<b>Would you cast this person as the star of a movie?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  If you were directing a movie, would you cast this person as the star for it?\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="movie" value="2" />Yes&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="movie" value="1" />Maybe&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="movie" value="0" />No';
+		
+	q[17] = '<b>At what speed do you think this expression is happening?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How quickly is this expression happening? For example, if this photo were taken a few seconds later, would the expression be the same?\')"><font size=1.5 color="blue">[?]</font></a><br> Slowly:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="speed" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="speed" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="speed" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="speed" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="speed" value="5" />5&nbsp;&nbsp; Quickly';
+	
+	q[18] = '<b>How friendly is this person?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help:  How friendly does this person seem?\')"><font size=1.5 color="blue">[?]</font></a><br> Very unfriendly:&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="friendly" value="1" />1&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="friendly" value="2" />2&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="friendly" value="3" />3&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="friendly" value="4" />4&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="friendly" value="5" />5&nbsp;&nbsp; Very friendly';
+		
+	q[19] = '<b>Would this be a good profile picture?</b>&nbsp;&nbsp;&nbsp;<a href="#" onClick="alert(\'Help: Would this be a good profile picture to use on a social networking site?\')"><font size=1.5 color="blue">[?]</font></a><br> <input type="radio" onClick="swapColor(this)" name="profilepic" value="2" />Yes&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="profilepic" value="1" />Maybe&nbsp;&nbsp; <input type="radio" onClick="swapColor(this)" name="profilepic" value="0" />No';
+	// the background colors
+	
+	var offColor = "#D09FD3";
+	var onColor = "#AEE3AB";
+	
+	function swapColor(radioButton){
+		if(radioButton.parentNode.style.backgroundColor != onColor){
+			radioButton.parentNode.style.backgroundColor = onColor;
+			finished = finished + 1;
+			if(finished >= 20){
+				document.getElementById("submitbutton").disabled = false;
+			}
+		}		
+	}
+	
+  // Shuffle function from: Jonas Raoni Soares Silva
+  //@ http://jsfromhell.com/array/shuffle [v1.0]
+
+shuffle = function(o){ //v1.0
+	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
+};
+  
+// shuffle the question order
+q_shuffled = shuffle(q);
+	
+	</script>
+<table width="100%">
+    <tbody>
+        <tr>
+            <td>
+            <table align="center">
+                <tbody>
+                    <tr>
+                        <td width="30%"><!-- header with image -->	<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="256" border="5" src="${image}" id="faceImage" alt="face" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center> 	 	<script type = "text/javascript">
+	// the face image frame color
+	
+	var frameColors = ["#FF0000", "#00FF00", "#0000FF"];
+	frameColors = shuffle(frameColors);
+	//alert(document.getElementById("faceImage").style.border);
+	document.getElementById("faceImage").style.borderColor = frameColors[0];
+	
+	// check if the colors match
+	colorMatch = function(checker){
+	var match = 0;
+	// red green blue
+	if (((checker==1) && (frameColors[0]=="#FF0000")) || ((checker==2) && (frameColors[0]=="#00FF00")) || (checker==3) && (frameColors[0]=="#0000FF")){
+		match = 1;
+	}
+	return match;
+	//document.getElementById("colorVigilance").value = match;
+	//alert(document.getElementById("colorVigilance").value);
+	}
+	</script></td>
+                        <td>
+                        <h3>Answer questions about person outlined in the image</h3>
+                        Shown to the left is a picture of a face. Please answer the following questions pertaining to <i><u><b>that</b></u></i> person.<br />
+                        Please answer ALL questions in the HIT as accurately as possible.<br />
+                        <br />
+                        <font size="2"> 	{Note-- By making judgements about these images, you are participating in a study being performed by the cognitive scientists in the MIT Department of Brain and Cognitive Science. If you have questions about this research, please contact Dr. Oliva at oliva@mit.edu. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.} 	</font></td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <table width="100%" class="questions">
+                <tbody>
+                    <tr>
+                        <td width="50%">1. <script type = "text/javascript"> document.write(q_shuffled[0]) </script></td>
+                        <td width="50%">2. <script type = "text/javascript"> document.write(q_shuffled[1]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">3. <script type = "text/javascript"> document.write(q_shuffled[2]) </script></td>
+                        <td width="50%">4. <script type = "text/javascript"> document.write(q_shuffled[3]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">5. <script type = "text/javascript"> document.write(q_shuffled[4]) </script></td>
+                        <td width="50%">6. <script type = "text/javascript"> document.write(q_shuffled[5]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">7. <script type = "text/javascript"> document.write(q_shuffled[6]) </script></td>
+                        <td width="50%">8. <script type = "text/javascript"> document.write(q_shuffled[7]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">9. <script type = "text/javascript"> document.write(q_shuffled[8]) </script></td>
+                        <td width="50%">10. <script type = "text/javascript"> document.write(q_shuffled[9]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">11. <script type = "text/javascript"> document.write(q_shuffled[10]) </script></td>
+                        <td width="50%">12. <script type = "text/javascript"> document.write(q_shuffled[11]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">13. <script type = "text/javascript"> document.write(q_shuffled[12]) </script></td>
+                        <td width="50%">14. <script type = "text/javascript"> document.write(q_shuffled[13]) </script></td>
+                    </tr>
+                    <tr>
+                        <td width="50%">15. <script type = "text/javascript"> document.write(q_shuffled[14]) </script></td>
+                        <td width="50%">16. <script type = "text/javascript"> document.write(q_shuffled[15]) </script></td>
+                    </tr>
+					 <tr>
+                        <td width="50%">17. <script type = "text/javascript"> document.write(q_shuffled[16]) </script></td>
+                        <td width="50%">18. <script type = "text/javascript"> document.write(q_shuffled[17]) </script></td>
+                    </tr>
+					<tr>
+                        <td width="50%">19. <script type = "text/javascript"> document.write(q_shuffled[18]) </script></td>
+                        <td width="50%">20. <script type = "text/javascript"> document.write(q_shuffled[19]) </script></td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<center>Please answer all questions before submitting the HIT. Thank you!<br><br><input type="submit" id="submitbutton" disabled="true" value="Submit HIT" name="SubmitHIT" /> 	</center>
