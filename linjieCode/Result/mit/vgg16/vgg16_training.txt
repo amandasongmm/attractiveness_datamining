@@ -1,0 +1,5 @@
+Training Accuracy
+Number of features: 200
+Residual sum of squares: 0.63
+Variance score is: 0.57
+Correlation between predicted ratings and actual ratings is: 0.7550
