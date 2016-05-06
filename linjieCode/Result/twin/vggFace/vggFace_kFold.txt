@@ -1,4 +1,4 @@
-Number of folds: 10
-Residual sum of squares: 8.71
-Variance score is: -10.39
-Correlation between predicted ratings and actual ratings is: 0.0034
+Number of folds: 20
+Residual sum of squares: 0.97
+Variance score is: -0.46
+Correlation between predicted ratings and actual ratings is: 0.2255
