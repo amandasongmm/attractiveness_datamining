@@ -22,13 +22,9 @@ img_name_list.to_pickle('../clean_data/img_name_list')
 # Delete irrelevant information.
 delete_field_list = ['Filename', 'Image #', 'catch', 'catchAns', 'subage', 'submale', 'subrace',
                      'catch.1', 'catchAns.1', 'subage.1', 'submale.1', 'subrace.1']
-delete_num_list = []
-for i in delete_field_list:
-    cur_ind = df.columns.get_loc(i)
-    delete_num_list.append(cur_ind)
 
 # save feature array
-df = df.drop(df.columns[delete_num_list], axis=1)
+df = df.drop(delete_field_list, axis=1, inplace=True)
 df.to_pickle('../clean_data/feature_array')  # How to load: data = pd.read_pickle('./clean_data/feature_array')
 
 
