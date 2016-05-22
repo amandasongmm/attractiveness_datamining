@@ -20,8 +20,8 @@ from sklearn import preprocessing
 from sklearn.cross_validation import train_test_split
 
 
-NUM_PCS = 11
-TRIALS = 5
+NUM_PCS = 9
+TRIALS = 10
 
 
 # Load in the 6 PCs for image features
@@ -37,6 +37,7 @@ coefficients = pd.DataFrame(columns=range(NUM_PCS))
 MSEs = pd.Series(range(yData.index.size))
 varScore = pd.Series(yData.index.size)
 correlation = pd.Series(yData.index.size)
+coefficients = pd.DataFrame(columns=range(9))
 
 # Iterate over each person's 200 ratings
 i = 0
@@ -47,17 +48,37 @@ for row, index in yData.iterrows():
     # Hold aggregate model data for different test / train splits
     scores = pd.Series(TRIALS)
     mses = pd.Series(TRIALS)
+    coeffs = pd.DataFrame(columns=range(NUM_PCS))
     predictions = pd.Series()
     yVals = pd.Series()
 
     # Do multiple train / test splits
     for j in range(TRIALS):
+
         # Split ratings into test and train set
-        yTrain, yTest, xTrain, xTest = train_test_split(y, x, train_size=.99)
+        # Make it happen evenly across datsets
+        yArrs = np.split(y, 4)
+        xArrs = np.split(x, 4)
+        # Populate first dataset's test/train
+        yTr, yTe, xTr, xTe = train_test_split(yArrs[0], xArrs[0], train_size=.9)
+        yTrain = yTr
+        yTest = yTe
+        xTrain = xTr
+        xTest = xTe
+        # Fill the rest
+        for k in range(1,4):
+            yTr, yTe, xTr, xTe = train_test_split(yArrs[k], xArrs[k], train_size=.9)
+            yTrain = np.append(yTrain, yTr)
+            yTest = np.append(yTest, yTe)
+            xTrain = np.concatenate((xTrain, list(xTr)), axis=0)
+            xTest = np.concatenate((xTest, list(xTe)), axis=0)
 
         # Run Linear regression
         myModel = linear_model.LinearRegression(fit_intercept=True, copy_X=True, normalize=True)
-        myModel.fit(x,y)
+        myModel.fit(xTrain,yTrain)
+
+        # Save coefficients
+        coeffs = coeffs.append(pd.Series(myModel.coef_), ignore_index=True)
 
         scores.loc[j] = myModel.score(xTest, yTest)
 
@@ -76,8 +97,16 @@ for row, index in yData.iterrows():
     # Save the correlation
     correlation.loc[i] = (np.corrcoef(predictions, yVals)[0][1])
 
-    i += 1
+    # Save the coefficients
+    coefficients.loc[i] = np.mean(coeffs)
 
+    i += 1
+    
+coefficients.to_csv('linearCoefficients.csv', index=False)
 varScore.to_csv('varianceScore.csv', index=False)
 MSEs.to_csv('mseVals.csv', index=False)
 correlation.to_csv('correlations.csv', index=False)
+
+print "Correlation: " + str(np.mean(correlation))
+print "VarScore: " + str(np.mean(varScore))
+print "MSE: " + str(np.mean(MSEs))

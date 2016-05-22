@@ -9,7 +9,7 @@ Author: Chad Atalla
 Date:   4/6/2016
 """
 
-CHOICE = 5
+CHOICE =2
 
 import numpy as np
 import pandas as pd
