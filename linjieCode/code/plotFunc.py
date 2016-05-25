@@ -53,9 +53,9 @@ def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabe
     if len(xTickLabel)>0:
         axmatrix.set_xticks(np.arange(0,length), minor=False)
         xTickLabel = [ xTickLabel[i] for i in tripIndex]
-        axmatrix.set_xticklabels(xTickLabel,fontsize = lSize-20,rotation=90)
+        axmatrix.set_xticklabels(xTickLabel,fontsize = lSize-10,rotation=90)
         axmatrix.set_yticks(np.arange(0, length), minor=False)
-        axmatrix.set_yticklabels(xTickLabel, fontsize=lSize - 20)
+        axmatrix.set_yticklabels(xTickLabel, fontsize=lSize - 10)
     else:
         axmatrix.set_yticks([])
         axmatrix.set_xticks([])
@@ -76,3 +76,4 @@ def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabe
     if len(figName)>0:
         fig.savefig(savePath+figName+'.png')
     return tempIndex,T
+
