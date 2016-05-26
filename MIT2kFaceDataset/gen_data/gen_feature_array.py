@@ -1,7 +1,5 @@
 import pandas as pd
 import simplejson
-import pickle
-
 
 __author__ = 'amanda'
 
