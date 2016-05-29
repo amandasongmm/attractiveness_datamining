@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7bd82ab-4a76-4d66-904d-e46f9994406c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RatingFileGeneration.ipynb" afterPath="$PROJECT_DIR$/RatingFileGeneration.ipynb" />
-    </list>
+    <list default="true" id="b7bd82ab-4a76-4d66-904d-e46f9994406c" name="Default" comment="" />
     <ignored path="code.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
