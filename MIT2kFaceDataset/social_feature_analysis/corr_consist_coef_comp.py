@@ -4,7 +4,9 @@ from sklearn.cross_validation import train_test_split
 from scipy.stats import pearsonr
 from sklearn import cross_validation
 from sklearn import linear_model
+
 __author__ = 'amanda'
+
 
 '''
 Compute the consistency, correlation and coefficients to jointly understand how each feature jointly contribute to attractiveness prediction.
@@ -87,11 +89,27 @@ def comp_coeff():
     df_coef.to_csv('../clean_data/coefficient_ave_social_fea.csv')
 
 
-def compare_3c():
+def load_3c():
     df_consist = pd.read_csv('../clean_data/consistency.csv')
     df_corr = pd.read_csv('../clean_data/correlation_with_attr.csv')
     df_coef = pd.read_csv('../clean_data/coefficient_ave_social_fea.csv')
 
-    
+    corr = []
+    consist = []
+    for i in range(df_corr.shape[0]):
+        if df_corr.ix[i, 0] != 'attractive' and df_corr.ix[i, 0] != 'unattractive':
+            corr.append(df_corr.ix[i, 1])
+            consist.append(df_consist.ix[i, 1])
 
+    coef = df_coef['coefficient'].values
+    feat_names = df_coef['Unnamed: 0'].values
+
+    return corr, consist, coef, feat_names
+
+
+def conca_3c():
+    corr, consist, coef, feat_names = load_3c()
+    tmp = np.vstack((corr,coef, consist, feat_names))
+    conca_df = pd.DataFrame(tmp.T, columns=['correlation', 'coefficients', 'consistence', 'feature names'])
+    conca_df.to_csv('../clean_data/conta_3c.csv')
     return
