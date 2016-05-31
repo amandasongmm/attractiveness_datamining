@@ -30,6 +30,31 @@ def load_geo():
     return feature_x, attract_y, field_names
 
 
+def load_new_geo():
+    geometric_all = pd.read_csv('../clean_data/geometric_wSmoothness.csv')
+    x = geometric_all.drop(['imgName', 'attractive'], axis=1)
+    field_names = list(x.columns.values)
+    feature_x = x.values
+    feature_x = preprocessing.scale(feature_x)
+    attract_y = geometric_all['attractive'].values
+    return feature_x, attract_y, field_names
+
+
+def load_all_feat():
+    geometric_all = pd.read_csv('../clean_data/geometric_wSmoothness.csv')
+    x_1 = geometric_all.drop(['imgName', 'attractive'], axis=1)
+
+    social_all = pd.read_csv('../clean_data/reordered_social_feature.csv')
+    x_2 = social_all.drop(['attractive', 'unattractive'], axis=1)
+
+    feature_x = np.hstack((x_1.values, x_2.values))
+    feature_x = preprocessing.scale(feature_x)
+
+    field_names = list(x_1.columns.values) + list(x_2.columns.values)
+    attract_y = geometric_all['attractive'].values
+    return feature_x, attract_y, field_names
+
+
 def ridge_regression(X, y):
     itr_num = 50
     test_corr_list = np.zeros((itr_num, 1))
@@ -87,18 +112,18 @@ def plot_bar_graph(coef_list, field_names):
     axes.set_ylim([-0.5, 0.5])
 
     ax.set_ylabel('Coefficients', fontsize=20)
-    ax.set_title('Coefficients of all geometric features', fontsize=20)
+    ax.set_title('Coefficients of geometric features', fontsize=20)
 
     ax.set_xticks(ind + width)
     ax.set_xticklabels(field_names, rotation=90)
     plt.tick_params(labelsize=18)
-    plt.savefig('../figs/geometric_feature_bar_graph.png')
+    plt.savefig('../figs/geometric_bar_graph.png')
     plt.show()
     return
 
 
 def plot_bar_pipeline():
-    feature_x, attract_y, field_names = load_geo()
+    feature_x, attract_y, field_names = load_new_geo()
     test_corr_mean, coef_list = ridge_regression(feature_x, attract_y)
     print test_corr_mean
     plot_bar_graph(coef_list, field_names)
@@ -187,4 +212,5 @@ def plot_embedding_pipeline():
     show(p)
     return
 
-plot_embedding_pipeline()
+plot_bar_pipeline()
+
