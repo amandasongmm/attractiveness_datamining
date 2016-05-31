@@ -106,7 +106,8 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
         # Calculate the correlation between prediction and actual rating.
         cor = np.corrcoef(predicted_rating_train, rating_train)
         corrTrainList.append(cor[0, 1])
-        
+    if not xVal: 
+        optNumFea = hyperParam
     print 'number of features: %d' % optNumFea
     print 'On validation set:'
     print 'Residual sum of squares: %.2f' % (sum(mseValiList) / numTrain)
@@ -126,3 +127,4 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
             f.write('Variance score is: %.2f' % (sum(varValiList) / numTrain) + '\n')
             f.write('Correlation between predicted ratings and actual ratings is: %.4f' \
                     % (sum(corrValiList) / numTrain) + '\n')
+    return (sum(corrValiList) / numTrain), (sum(corrTrainList) / numTrain)
