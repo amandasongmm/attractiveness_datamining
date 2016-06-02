@@ -40,7 +40,7 @@ def genPlot(x, y, imgs, num):
     fig.suptitle('Residual #' + str(num))
 
     # Add thumbnails
-    imscatter(x, y, imgs, zoom=0.2, ax=ax)
+    imscatter(x, y, imgs, zoom=0.3, ax=ax)
 
     # Make base scatter to double check
     ax.scatter(x, y)
