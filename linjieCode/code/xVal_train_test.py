@@ -57,7 +57,7 @@ def crossVal(mean_rating, featureMat, pModel = prediction_model, valSize= 0.1, M
 
 def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = None, xVal = False,\
                numTrain = 20,savePath = '../Result',MODEL= 'config', printToFile = False,ratio = 0.5,\
-               returnValTrain = False,returnModel = False, printResult = True,getMaxMin = False):
+               returnValTrain = False,returnModel = False, printResult = True,getMaxMin = False, plotPredActual = False):
     if hyperParam != None :
         featureMat_hat = featureMat[:, :hyperParam]
     else:
@@ -140,6 +140,25 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
         maxRating,maxIndex,minRating,minIndex = getPredResult(predicted_rating,test_index)
         return maxRating,maxIndex,minRating,minIndex
     
+    if plotPredActual:
+        x = predicted_rating
+        y = rating_test
+        fig, ax = plt.subplots()
+        ax.scatter(x, y, alpha=0.5)
+        ax.set_xlim((0, 8))
+        ax.set_ylim((0, 8))
+        x0, x1 = ax.get_xlim()
+        y0, y1 = ax.get_ylim()
+        ax.set_aspect(abs(x1-x0)/abs(y1-y0))
+        ax.grid(b=True, which='major', color='k', linestyle='--')
+        m, b = np.polyfit(x, y, 1)
+        X_plot = np.linspace(ax.get_xlim()[0],ax.get_xlim()[1],100)
+        plt.plot(X_plot, m*X_plot + b, '-r')
+        plt.xlabel('Predicted Ratings',fontsize = 26)
+        plt.ylabel('Actual Ratings',fontsize = 26)
+        plt.title('Predicted VS Actual Ratings',fontsize = 26)
+        plt.savefig(saveFigPath+'/'+MODEL+'_predVsActual.png')
+    
     if returnModel:
         return pModel
     
@@ -162,4 +181,5 @@ def getPredResult(predicted_rating,test_index):
     print 'minRating: ',minRating
     print '****************************************************************************************'
     return maxRating,maxIndex,minRating,minIndex
+
 
