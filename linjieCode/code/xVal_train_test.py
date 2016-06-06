@@ -7,6 +7,7 @@ from sklearn import linear_model
 from sklearn import cross_validation
 import random
 import math
+import matplotlib.pyplot as plt
 
 prediction_model = linear_model.Ridge(fit_intercept=True)
 def crossVal(mean_rating, featureMat, pModel = prediction_model, valSize= 0.1, MODEL= 'config',printResult = False):
@@ -136,14 +137,11 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
             f.write('Variance score is: %.2f' % (sum(varValiList) / numTrain) + '\n')
             f.write('Correlation between predicted ratings and actual ratings is: %.4f' \
                     % (sum(corrValiList) / numTrain) + '\n')
-    if getMaxMin:
-        maxRating,maxIndex,minRating,minIndex = getPredResult(predicted_rating,test_index)
-        return maxRating,maxIndex,minRating,minIndex
-    
     if plotPredActual:
         x = predicted_rating
         y = rating_test
         fig, ax = plt.subplots()
+        fig.set_size_inches(10, 8)
         ax.scatter(x, y, alpha=0.5)
         ax.set_xlim((0, 8))
         ax.set_ylim((0, 8))
@@ -157,7 +155,11 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
         plt.xlabel('Predicted Ratings',fontsize = 26)
         plt.ylabel('Actual Ratings',fontsize = 26)
         plt.title('Predicted VS Actual Ratings',fontsize = 26)
-        plt.savefig(saveFigPath+'/'+MODEL+'_predVsActual.png')
+        #plt.savefig(saveFigPath+'/'+MODEL+'_predVsActual.png')
+        
+    if getMaxMin:
+        maxRating,maxIndex,minRating,minIndex = getPredResult(predicted_rating,test_index)
+        return maxRating,maxIndex,minRating,minIndex
     
     if returnModel:
         return pModel
