@@ -17,7 +17,7 @@ def crossVal(mean_rating, featureMat, pModel = prediction_model, valSize= 0.1, M
     varList = []
     mseList = []
     if MODEL != 'faceSNN':
-        numFeature = np.linspace(20,300,num = 100,dtype = np.int16)
+        numFeature = np.linspace(20,500,num = 50,dtype = np.int16)
     else:
         numFeature = np.linspace(0,50,num = 10,dtype = np.int16 )
     for numF in numFeature:
@@ -56,7 +56,8 @@ def crossVal(mean_rating, featureMat, pModel = prediction_model, valSize= 0.1, M
 
 
 def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = None, xVal = False,\
-               numTrain = 20,savePath = '../Result',MODEL= 'config', printToFile = False,ratio = 0.5):
+               numTrain = 20,savePath = '../Result',MODEL= 'config', printToFile = False,ratio = 0.5,\
+               returnValTrain = False,returnModel = False, printResult = True,getMaxMin = False):
     if hyperParam != None :
         featureMat_hat = featureMat[:, :hyperParam]
     else:
@@ -69,7 +70,7 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
     varTrainList = []
     mseTrainList = []
     index_list = range(dataLen)
-    for i in range(1, numTrain):
+    for i in range(numTrain):
         index_random  = index_list
         random.shuffle(index_random)
         train_index = index_random[:int(math.ceil(float(dataLen)*ratio))]
@@ -108,23 +109,57 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
         corrTrainList.append(cor[0, 1])
     if not xVal: 
         optNumFea = hyperParam
-    print 'number of features: %d' % optNumFea
-    print 'On validation set:'
-    print 'Residual sum of squares: %.2f' % (sum(mseValiList) / numTrain)
-    print 'Variance score is: %.2f' % (sum(varValiList) / numTrain)
-    print 'Correlation between predicted ratings and actual ratings is: %.4f' % (sum(corrValiList) / numTrain)
-    print ' '
-    print 'On training set:'
-    print 'Residual sum of squares: %.2f' % (sum(mseTrainList) / numTrain)
-    print 'Variance score is: %.2f' % (sum(varTrainList) / numTrain)
-    print 'Correlation between predicted ratings and actual ratings is: %.4f' % (sum(corrTrainList) / numTrain)
+    if printResult:
+        print '**************************Result of train and test**************************************'
+        print 'number of features: %d' % optNumFea
+        print 'On validation set:'
+        print 'Residual sum of squares: %.2f' % (sum(mseValiList) / numTrain)
+        print 'Variance score is: %.2f' % (sum(varValiList) / numTrain)
+        print 'Correlation between predicted ratings and actual ratings is: %.4f' % (sum(corrValiList) / numTrain)
+        print ' '
+        print 'On training set:'
+        print 'Residual sum of squares: %.2f' % (sum(mseTrainList) / numTrain)
+        print 'Variance score is: %.2f' % (sum(varTrainList) / numTrain)
+        print 'Correlation between predicted ratings and actual ratings is: %.4f' % (sum(corrTrainList) / numTrain)
+        print '****************************************************************************************'
 
     if printToFile:
-        fName = savePath + '/' + MODEL + '_kFold.txt'
+        fName = savePath + '/' + MODEL + '_trainTest.txt'
         with open(fName, 'w') as f:
             f.write('Number of train/test: %d' % numTrain + '\n')
+            f.write('Residual sum of squares: %.2f' % (sum(mseTrainList) / numTrain) + '\n')
+            f.write('Variance score is: %.2f' % (sum(varTrainList) / numTrain) + '\n')
+            f.write('Correlation between predicted ratings and actual ratings is: %.4f' \
+                    % (sum(corrTrainList) / numTrain) + '\n')
+            f.write('\n')
             f.write('Residual sum of squares: %.2f' % (sum(mseValiList) / numTrain) + '\n')
             f.write('Variance score is: %.2f' % (sum(varValiList) / numTrain) + '\n')
             f.write('Correlation between predicted ratings and actual ratings is: %.4f' \
                     % (sum(corrValiList) / numTrain) + '\n')
-    return (sum(corrValiList) / numTrain), (sum(corrTrainList) / numTrain)
+    if getMaxMin:
+        maxRating,maxIndex,minRating,minIndex = getPredResult(predicted_rating,test_index)
+        return maxRating,maxIndex,minRating,minIndex
+    
+    if returnModel:
+        return pModel
+    
+    if returnValTrain:
+        return (sum(corrValiList) / numTrain), (sum(corrTrainList) / numTrain)
+    
+def getPredResult(predicted_rating,test_index):
+    #print test_index
+    test_index = np.asarray(test_index)
+    copy_rating = np.asarray(predicted_rating)
+    maxIndex = test_index[copy_rating.argsort()[-5:][::-1]]
+    minIndex = test_index[copy_rating.argsort()[:5]]
+    copy_rating.sort()
+    maxRating = copy_rating[-5:]
+    minRating = copy_rating[:5]
+    print '**************************Result of predicted max and min on testing set****************'
+    print 'maxIndex: ',maxIndex
+    print 'minIndex: ',minIndex
+    print 'maxRating: ',maxRating
+    print 'minRating: ',minRating
+    print '****************************************************************************************'
+    return maxRating,maxIndex,minRating,minIndex
+
