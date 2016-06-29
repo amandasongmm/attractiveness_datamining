@@ -103,3 +103,13 @@ ENV/
 ./processing/landmarking/checkVsChicago/landmarks68.dat
 ./processing/landmarking/cfd/landmarks68.dat
 ./.git/objects/pack/pack-f9cc68ec0d82d779fb79072364d89f1aa1c35062.pack
+./.git/objects/pack/pack-f9cc68ec0d82d779fb79072364d89f1aa1c35062.pack
+./linjieCode/neuralNet/VGG16/VGG_ILSVRC_16_layers.caffemodel
+./resize_im_pipeline/tmp/shape_predictor_68_face_landmarks.dat
+./processing/imageProcessing/rotation/landmarks68.dat
+./processing/goldenRatio/landmarks68.dat
+./processing/landmarking/mit/landmarks68.dat
+./processing/landmarking/landmarks68.dat
+./processing/landmarking/checkVsChicago/landmarks68.dat
+./processing/landmarking/cfd/landmarks68.dat
+./.git/objects/pack/pack-f9cc68ec0d82d779fb79072364d89f1aa1c35062.pack
