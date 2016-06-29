@@ -113,3 +113,6 @@ ENV/
 ./processing/landmarking/checkVsChicago/landmarks68.dat
 ./processing/landmarking/cfd/landmarks68.dat
 ./.git/objects/pack/pack-f9cc68ec0d82d779fb79072364d89f1aa1c35062.pack
+./linjieCode/neuralNet/VGG16/VGG_ILSVRC_16_layers.caffemodel
+./.git/objects/pack/pack-f2c319b64586ed59eecc21d6f28e25c05d8e14ad.pack
+./.git/objects/pack/pack-f9cc68ec0d82d779fb79072364d89f1aa1c35062.pack
