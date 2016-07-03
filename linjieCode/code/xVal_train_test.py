@@ -162,7 +162,7 @@ def Train_Test(mean_rating, featureMat, pModel = prediction_model, hyperParam = 
         return maxRating,maxIndex,minRating,minIndex
     
     if returnModel:
-        return pModel
+        return pModel,optNumFea
     
     if returnValTrain:
         return (sum(corrValiList) / numTrain), (sum(corrTrainList) / numTrain)

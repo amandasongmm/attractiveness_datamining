@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # import math
 # import os
 
-def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabel = '',title = '',savePath = '',figName = "",tripIndex = [],dendro = False,\
+def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabel = '',title = '',savePath = './',figName = "",tripIndex = [],dendro = False,\
                 bLabel = 'Correlation',lSize = 30,fSize = 1.5,\
                 cBarTicks = [-0.6, -0.4, -0.2, 0, 0.2,0.4,0.6,0.8, 1.0]):
     # data is a length-by-length matrix
