@@ -343,3 +343,16 @@ layer {
   name: "prob"
   type: "Softmax"
 }
+layer {
+  name: "pca5_3"
+  type: "Python"
+  bottom: "conv5_3"
+  top: "pca5_3"
+  python_param { 
+    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
+    module: "pcaLayer"
+    # the layer name -- the class name in the module
+    layer: "PCA"
+  }
+  propagate_down: true
+}
