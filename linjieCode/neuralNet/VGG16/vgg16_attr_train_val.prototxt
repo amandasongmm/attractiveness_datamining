@@ -45,11 +45,11 @@ layer {
   name: "conv1_1"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -70,11 +70,11 @@ layer {
   name: "conv1_2"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -123,11 +123,11 @@ layer {
   name: "conv2_2"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -159,11 +159,11 @@ layer {
   name: "conv3_1"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -184,11 +184,11 @@ layer {
   name: "conv3_2"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -209,11 +209,11 @@ layer {
   name: "conv3_3"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -245,11 +245,11 @@ layer {
   name: "conv4_1"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -270,11 +270,11 @@ layer {
   name: "conv4_2"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -295,11 +295,11 @@ layer {
   name: "conv4_3"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -331,11 +331,11 @@ layer {
   name: "conv5_1"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -356,11 +356,11 @@ layer {
   name: "conv5_2"
   type: "Convolution"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
+    lr_mult: 2
     decay_mult: 0
   }
   convolution_param {
@@ -382,11 +382,11 @@ layer {
   name: "fc_pca"
   type: "InnerProduct"
   param {
-    lr_mult: 1
+    lr_mult: 10
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 20
     decay_mult: 0
   }
   inner_product_param {
@@ -416,11 +416,11 @@ layer {
   name: "fc_out"
   type: "InnerProduct"
   param {
-    lr_mult: 1
+    lr_mult: 10
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 20
     decay_mult: 0
   }
   inner_product_param {
