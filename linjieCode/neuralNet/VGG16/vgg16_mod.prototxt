@@ -12,7 +12,7 @@ layer {
     mean_value: 123
   }
   image_data_param {
-    source: "/home/ubuntu/attractiveness_datamining/vgg_feature/list/file_list.txt"
+    source: "/home/lli-ms/attractiveness_datamining/linjieCode/data_list/val_list.txt"
     batch_size: 50
     new_height: 256
     new_width: 256
