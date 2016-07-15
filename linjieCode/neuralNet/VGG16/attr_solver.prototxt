@@ -1,4 +1,4 @@
-net: "/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg16_mod.prototxt"
+net: "/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg16_attr_train_val.prototxt"
 solver_type: 2
 test_iter: 100
 test_interval: 500
