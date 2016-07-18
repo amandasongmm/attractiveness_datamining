@@ -578,7 +578,7 @@ layer {
   bottom: "conv3_1t"
   top: "unpool2"
   name: "unpool2"
-  type: "Unpooling"
+  type: "UnPooling"
   pooling_param {
     pool: MAX
     kernel_size: 2
@@ -623,7 +623,7 @@ layer {
   bottom: "conv2_1t"
   top: "unpool1"
   name: "unpool1"
-  type: "Unpooling"
+  type: "UnPooling"
   pooling_param {
     pool: MAX
     kernel_size: 2
