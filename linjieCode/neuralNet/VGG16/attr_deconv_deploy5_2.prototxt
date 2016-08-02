@@ -332,7 +332,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 512
+    unpool_size: 28
   }
 }
 layer {
@@ -395,7 +395,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 256
+    unpool_size: 56
   }
 }
 layer {
@@ -458,7 +458,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 128
+    unpool_size: 112
   }
 }
 layer {
@@ -504,7 +504,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 64
+    unpool_size: 224
   }
 }
 layer {
