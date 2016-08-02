@@ -262,8 +262,8 @@ layer {
 
 layer {
   bottom: "conv5_2"
-  top: "fc_pca"
-  name: "fc_pca"
+  top: "fc_pca_new"
+  name: "fc_pca_new"
   type: "InnerProduct"
   inner_product_param {
     num_output: 255
@@ -271,15 +271,15 @@ layer {
 }
 
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
+  bottom: "fc_pca_new"
+  top: "fc_pca_new"
   name: "relu_pca"
   type: "ReLU"
 }
 
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
+  bottom: "fc_pca_new"
+  top: "fc_pca_new"
   name: "drop_pca"
   type: "Dropout"
   dropout_param {
@@ -287,7 +287,7 @@ layer {
   }
 }
 layer {
-  bottom: "fc_pca"
+  bottom: "fc_pca_new"
   top: "fc_out"
   name: "fc_out"
   type: "InnerProduct"
