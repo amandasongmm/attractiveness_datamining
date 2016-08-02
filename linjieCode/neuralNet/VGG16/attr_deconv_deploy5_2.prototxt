@@ -463,6 +463,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 512
   }
 }
 layer {
@@ -518,14 +519,14 @@ layer {
 }
 layer {
   bottom: "conv4_1t"
-  bottom: "pool3_mask"
   top: "unpool3"
   name: "unpool3"
   type: "Unpooling"
-  pooling_param {
-    pool: MAX
+  unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 256
   }
 }
 layer {
@@ -581,14 +582,14 @@ layer {
 }
 layer {
   bottom: "conv3_1t"
-  bottom: "pool2_mask"
   top: "unpool2"
   name: "unpool2"
   type: "Unpooling"
-  pooling_param {
-    pool: MAX
+  unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 128
   }
 }
 layer {
@@ -627,14 +628,14 @@ layer {
 }
 layer {
   bottom: "conv2_1t"
-  bottom: "pool1_mask"
   top: "unpool1"
   name: "unpool1"
   type: "Unpooling"
-  pooling_param {
-    pool: MAX
+  unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 64
   }
 }
 layer {
