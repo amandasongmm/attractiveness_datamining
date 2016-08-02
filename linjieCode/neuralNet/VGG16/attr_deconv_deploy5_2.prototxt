@@ -288,13 +288,6 @@ layer {
     num_output: 1
   }
 }
-layer {
-  name: "loss"
-  type: "EuclideanLoss"
-  bottom: "fc_out"
-  bottom: "label"
-  top: "loss"
-}
 # DECONVOLUTION PART
 layer {
   bottom: "conv5_2"
