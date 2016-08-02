@@ -658,7 +658,7 @@ layer {
   type: "ReLU"
 }
 layer {
-  bottom: "conv1_2t"
+  bottom: "relu1_1t"
   top: "conv1_1t"
   name: "conv1_1t"
   type: "Deconvolution"
