@@ -1,5 +1,4 @@
 name: "VGG_ILSVRC_16_layers"
-name: "VGG_ILSVRC_16_layers"
 layer {
   name: "data"
   type: "ImageData"
