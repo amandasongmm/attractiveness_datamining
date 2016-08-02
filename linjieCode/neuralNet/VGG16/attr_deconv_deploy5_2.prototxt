@@ -16,14 +16,6 @@ layer {
   top: "conv1_1"
   name: "conv1_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 64
     pad: 1
@@ -41,14 +33,6 @@ layer {
   top: "conv1_2"
   name: "conv1_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 64
     pad: 1
@@ -94,14 +78,6 @@ layer {
   top: "conv2_2"
   name: "conv2_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 128
     pad: 1
@@ -130,14 +106,6 @@ layer {
   top: "conv3_1"
   name: "conv3_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -155,14 +123,6 @@ layer {
   top: "conv3_2"
   name: "conv3_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -180,14 +140,6 @@ layer {
   top: "conv3_3"
   name: "conv3_3"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -216,14 +168,6 @@ layer {
   top: "conv4_1"
   name: "conv4_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -241,14 +185,6 @@ layer {
   top: "conv4_2"
   name: "conv4_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -266,14 +202,6 @@ layer {
   top: "conv4_3"
   name: "conv4_3"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -302,14 +230,6 @@ layer {
   top: "conv5_1"
   name: "conv5_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -327,14 +247,6 @@ layer {
   top: "conv5_2"
   name: "conv5_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -350,32 +262,24 @@ layer {
 
 layer {
   bottom: "conv5_2"
-  top: "fc_pca"
-  name: "fc_pca"
+  top: "fc_pca_new"
+  name: "fc_pca_new"
   type: "InnerProduct"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
   inner_product_param {
     num_output: 255
   }
 }
 
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
+  bottom: "fc_pca_new"
+  top: "fc_pca_new"
   name: "relu_pca"
   type: "ReLU"
 }
 
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
+  bottom: "fc_pca_new"
+  top: "fc_pca_new"
   name: "drop_pca"
   type: "Dropout"
   dropout_param {
@@ -383,28 +287,12 @@ layer {
   }
 }
 layer {
-  bottom: "fc_pca"
+  bottom: "fc_pca_new"
   top: "fc_out"
   name: "fc_out"
   type: "InnerProduct"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
   inner_product_param {
     num_output: 1
-    weight_filler {
-      type: "gaussian"
-      std: 0.005
-    }
-    bias_filler {
-      type: "constant"
-      value: 1
-    }
   }
 }
 layer {
