@@ -460,9 +460,10 @@ layer {
   top: "unpool4"
   name: "unpool4"
   type: "Unpooling"
-  unpool_param {
+  pooling_param {
     pool: MAX
-    kernel_size: 2
+    kernel_h: 2
+    kernel_w: 2
     stride: 2
   }
 }
