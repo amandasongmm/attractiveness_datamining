@@ -1,14 +1,16 @@
 name: "VGG_ILSVRC_16_layers"
+name: "VGG_ILSVRC_16_layers"
 layer {
-  name: "memory"
-  type: "MemoryData"
+  name: "data"
+  type: "ImageData"
   top: "data"
   top: "label"
-  memory_data_param {
-    batch_size: 1
-    channels: 3
-    height: 256
-    width: 256
+  transform_param {
+    mirror: false
+    crop_size: 224
+    mean_value: 104
+    mean_value: 117
+    mean_value: 123
   }
 }
 layer {
