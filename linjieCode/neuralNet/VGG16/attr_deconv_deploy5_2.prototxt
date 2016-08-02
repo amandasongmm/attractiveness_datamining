@@ -332,7 +332,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 28
+    unpool_size: 512
   }
 }
 layer {
@@ -395,7 +395,7 @@ layer {
     unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: 56
+    unpool_size: 256
   }
 }
 layer {
@@ -473,7 +473,7 @@ layer {
   name: "conv2_2t"
   type: "Deconvolution"
   convolution_param {
-    num_output: 112
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -519,7 +519,7 @@ layer {
   name: "conv1_2t"
   type: "Convolution"
   convolution_param {
-    num_output: 224
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
