@@ -456,14 +456,13 @@ layer {
 }
 layer {
   bottom: "conv5_1t"
-  bottom: "pool4_mask"
   top: "unpool4"
   name: "unpool4"
   type: "Unpooling"
   unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
-    unpool_size: -1
   }
 }
 layer {
