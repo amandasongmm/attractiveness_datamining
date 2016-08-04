@@ -292,6 +292,7 @@ layer {
     num_output: 1
   }
 }
+
 # DECONVOLUTION PART
 layer {
   bottom: "conv5_1"
