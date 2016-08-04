@@ -288,27 +288,9 @@ layer {
     num_output: 1
   }
 }
-
 # DECONVOLUTION PART
 layer {
-  bottom: "conv1_2"
-  top: "relu1_2t"
-  name: "relu1_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu1_2t"
-  top: "conv1_2t"
-  name: "conv1_2t"
-  type: "Convolution"
-  convolution_param {
-    num_output: 64
-    pad: 1
-    kernel_size: 3
-  }
-}
-layer {
-  bottom: "conv1_2t"
+  bottom: "conv1_1"
   top: "relu1_1t"
   name: "relu1_1t"
   type: "ReLU"
