@@ -295,12 +295,6 @@ layer {
 # DECONVOLUTION PART
 layer {
   bottom: "conv5_2"
-  top: "relu5_2t"
-  name: "relu5_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu5_2t"
   top: "conv5_2t"
   name: "conv5_2t"
   type: "Deconvolution"
@@ -329,6 +323,12 @@ layer {
 }
 layer {
   bottom: "conv5_1t"
+  top: "conv5_1t"
+  name: "relu5_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv5_1t"
   bottom: "pool4_mask"
   top: "unpool4"
   name: "unpool4"
@@ -342,12 +342,6 @@ layer {
 }
 layer {
   bottom: "unpool4"
-  top: "relu4_3t"
-  name: "relu4_3t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu4_3t"
   top: "conv4_3t"
   name: "conv4_3t"
   type: "Deconvolution"
@@ -393,6 +387,12 @@ layer {
 }
 layer {
   bottom: "conv4_1t"
+  top: "conv4_1t"
+  name: "relu4_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv4_1t"
   top: "unpool3"
   bottom: "pool3_mask"
   name: "unpool3"
@@ -406,12 +406,6 @@ layer {
 }
 layer {
   bottom: "unpool3"
-  top: "relu3_3t"
-  name: "relu3_3t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu3_3t"
   top: "conv3_3t"
   name: "conv3_3t"
   type: "Deconvolution"
@@ -457,6 +451,12 @@ layer {
 }
 layer {
   bottom: "conv3_1t"
+  top: "conv3_1t"
+  name: "relu3_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_1t"
   top: "unpool2"
   name: "unpool2"
   bottom: "pool2_mask"
@@ -470,12 +470,6 @@ layer {
 }
 layer {
   bottom: "unpool2"
-  top: "relu2_2t"
-  name: "relu2_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu2_2t"
   top: "conv2_2t"
   name: "conv2_2t"
   type: "Deconvolution"
@@ -504,6 +498,12 @@ layer {
 }
 layer {
   bottom: "conv2_1t"
+  top: "conv2_1t"
+  name: "relu2_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_1t"
   top: "unpool1"
   name: "unpool1"
   bottom: "pool1_mask"
@@ -515,14 +515,14 @@ layer {
     unpool_size: 224
   }
 }
+#layer {
+#  bottom: "unpool1"
+#  top: "relu1_2t"
+#  name: "relu1_2t"
+#  type: "ReLU"
+#}
 layer {
   bottom: "unpool1"
-  top: "relu1_2t"
-  name: "relu1_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu1_2t"
   top: "conv1_2t"
   name: "conv1_2t"
   type: "Convolution"
