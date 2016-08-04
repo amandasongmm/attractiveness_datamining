@@ -150,6 +150,7 @@ layer {
 layer {
   bottom: "conv3_3"
   top: "pool3"
+  top: "pool3_mask"
   name: "pool3"
   type: "Pooling"
   pooling_param {
