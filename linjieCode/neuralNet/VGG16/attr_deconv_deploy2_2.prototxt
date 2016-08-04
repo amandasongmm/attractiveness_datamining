@@ -328,8 +328,8 @@ layer {
 layer {
   bottom: "conv2_1t"
   top: "unpool1"
-  bottom: "pool1_mask"
   name: "unpool1"
+  bottom: "pool1_mask"
   type: "Unpooling"
   unpooling_param {
     unpool: MAX
