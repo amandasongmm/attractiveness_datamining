@@ -292,15 +292,9 @@ layer {
 # DECONVOLUTION PART
 layer {
   bottom: "conv1_2"
-  top: "relu1_2t"
-  name: "relu1_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu1_2t"
   top: "conv1_2t"
   name: "conv1_2t"
-  type: "Convolution"
+  type: "Deconvolution"
   convolution_param {
     num_output: 64
     pad: 1
@@ -309,12 +303,12 @@ layer {
 }
 layer {
   bottom: "conv1_2t"
-  top: "relu1_1t"
-  name: "relu1_1t"
+  top: "conv1_2t"
+  name: "relu1_2t"
   type: "ReLU"
 }
 layer {
-  bottom: "relu1_1t"
+  bottom: "conv1_2t"
   top: "conv1_1t"
   name: "conv1_1t"
   type: "Deconvolution"
