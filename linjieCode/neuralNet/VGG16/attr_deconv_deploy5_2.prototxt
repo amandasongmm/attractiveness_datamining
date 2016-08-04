@@ -40,6 +40,7 @@ layer {
 }
 layer {
   bottom: "conv1_2"
+  top: "pool1_mask"
   top: "pool1"
   name: "pool1"
   type: "Pooling"
@@ -86,6 +87,7 @@ layer {
 layer {
   bottom: "conv2_2"
   top: "pool2"
+  top: "pool2_mask"
   name: "pool2"
   type: "Pooling"
   pooling_param {
@@ -148,6 +150,7 @@ layer {
 layer {
   bottom: "conv3_3"
   top: "pool3"
+  top: "pool3_mask"
   name: "pool3"
   type: "Pooling"
   pooling_param {
@@ -211,6 +214,7 @@ layer {
   bottom: "conv4_3"
   top: "pool4"
   name: "pool4"
+  top: "pool4_mask"
   type: "Pooling"
   pooling_param {
     pool: MAX
@@ -325,6 +329,7 @@ layer {
 }
 layer {
   bottom: "conv5_1t"
+  bottom: "pool4_mask"
   top: "unpool4"
   name: "unpool4"
   type: "Unpooling"
@@ -389,6 +394,7 @@ layer {
 layer {
   bottom: "conv4_1t"
   top: "unpool3"
+  bottom: "pool3_mask"
   name: "unpool3"
   type: "Unpooling"
   unpooling_param {
@@ -453,6 +459,7 @@ layer {
   bottom: "conv3_1t"
   top: "unpool2"
   name: "unpool2"
+  bottom: "pool2_mask"
   type: "Unpooling"
   unpooling_param {
     unpool: MAX
@@ -499,6 +506,7 @@ layer {
   bottom: "conv2_1t"
   top: "unpool1"
   name: "unpool1"
+  bottom: "pool1_mask"
   type: "Unpooling"
   unpooling_param {
     unpool: MAX
