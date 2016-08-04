@@ -312,13 +312,14 @@ layer {
 layer {
   bottom: "conv3_1t"
   top: "unpool2"
-  bottom: "pool2_mask"
   name: "unpool2"
+  bottom: "pool2_mask"
   type: "Unpooling"
-  pooling_param {
-    pool: MAX
+  unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 112
   }
 }
 layer {
