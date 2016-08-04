@@ -306,7 +306,7 @@ layer {
 layer {
   bottom: "conv3_2t"
   top: "conv3_2t"
-  name: "relu3_1t"
+  name: "relu3_2t"
   type: "ReLU"
 }
 layer {
@@ -353,7 +353,7 @@ layer {
 layer {
   bottom: "conv2_2t"
   top: "conv2_2t"
-  name: "relu2_1t"
+  name: "relu2_2t"
   type: "ReLU"
 }
 layer {
