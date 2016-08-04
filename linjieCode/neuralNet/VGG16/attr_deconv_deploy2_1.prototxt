@@ -41,6 +41,7 @@ layer {
 layer {
   bottom: "conv1_2"
   top: "pool1"
+  top: "pool1_mask"
   name: "pool1"
   type: "Pooling"
   pooling_param {
@@ -292,12 +293,6 @@ layer {
 # DECONVOLUTION PART
 layer {
   bottom: "conv2_1"
-  top: "relu2_1t"
-  name: "relu2_1t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu2_1t"
   top: "conv2_1t"
   name: "conv2_1t"
   type: "Deconvolution"
@@ -309,7 +304,14 @@ layer {
 }
 layer {
   bottom: "conv2_1t"
+  top: "conv2_1t"
+  name: "relu2_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_1t"
   top: "unpool1"
+  bottom: "pool_mask"
   name: "unpool1"
   type: "Unpooling"
   unpooling_param {
@@ -321,15 +323,9 @@ layer {
 }
 layer {
   bottom: "unpool1"
-  top: "relu1_2t"
-  name: "relu1_2t"
-  type: "ReLU"
-}
-layer {
-  bottom: "relu1_2t"
   top: "conv1_2t"
   name: "conv1_2t"
-  type: "Convolution"
+  type: "Deconvolution"
   convolution_param {
     num_output: 64
     pad: 1
@@ -338,12 +334,12 @@ layer {
 }
 layer {
   bottom: "conv1_2t"
-  top: "relu1_1t"
-  name: "relu1_1t"
+  top: "conv1_2t"
+  name: "relu1_2t"
   type: "ReLU"
 }
 layer {
-  bottom: "relu1_1t"
+  bottom: "conv1_2t"
   top: "conv1_1t"
   name: "conv1_1t"
   type: "Deconvolution"
