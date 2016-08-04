@@ -1,29 +1,14 @@
 name: "VGG_ILSVRC_16_layers"
-layer {
-  name: "memory"
-  type: "MemoryData"
-  top: "data"
-  top: "label"
-  memory_data_param {
-    batch_size: 1
-    channels: 3
-    height: 256
-    width: 256
-  }
-}
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 224
+input_dim: 224
 layer {
   bottom: "data"
   top: "conv1_1"
   name: "conv1_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 64
     pad: 1
@@ -41,14 +26,6 @@ layer {
   top: "conv1_2"
   name: "conv1_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 64
     pad: 1
@@ -94,14 +71,6 @@ layer {
   top: "conv2_2"
   name: "conv2_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 128
     pad: 1
@@ -130,14 +99,6 @@ layer {
   top: "conv3_1"
   name: "conv3_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -155,14 +116,6 @@ layer {
   top: "conv3_2"
   name: "conv3_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -180,14 +133,6 @@ layer {
   top: "conv3_3"
   name: "conv3_3"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 256
     pad: 1
@@ -216,14 +161,6 @@ layer {
   top: "conv4_1"
   name: "conv4_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -241,14 +178,6 @@ layer {
   top: "conv4_2"
   name: "conv4_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -266,14 +195,6 @@ layer {
   top: "conv4_3"
   name: "conv4_3"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -302,14 +223,6 @@ layer {
   top: "conv5_1"
   name: "conv5_1"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -327,14 +240,6 @@ layer {
   top: "conv5_2"
   name: "conv5_2"
   type: "Convolution"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
   convolution_param {
     num_output: 512
     pad: 1
@@ -353,14 +258,6 @@ layer {
   top: "fc_pca"
   name: "fc_pca"
   type: "InnerProduct"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
   inner_product_param {
     num_output: 255
   }
@@ -387,32 +284,9 @@ layer {
   top: "fc_out"
   name: "fc_out"
   type: "InnerProduct"
-  param {
-    lr_mult: 10
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
   inner_product_param {
     num_output: 1
-    weight_filler {
-      type: "gaussian"
-      std: 0.005
-    }
-    bias_filler {
-      type: "constant"
-      value: 1
-    }
   }
-}
-layer {
-  name: "loss"
-  type: "EuclideanLoss"
-  bottom: "fc_out"
-  bottom: "label"
-  top: "loss"
 }
 
 # DECONVOLUTION PART
@@ -455,10 +329,11 @@ layer {
   top: "unpool1"
   name: "unpool1"
   type: "Unpooling"
-  pooling_param {
-    pool: MAX
+  unpooling_param {
+    unpool: MAX
     kernel_size: 2
     stride: 2
+    unpool_size: 224
   }
 }
 layer {
@@ -485,7 +360,7 @@ layer {
   type: "ReLU"
 }
 layer {
-  bottom: "conv1_2t"
+  bottom: "relu1_1t"
   top: "conv1_1t"
   name: "conv1_1t"
   type: "Deconvolution"
