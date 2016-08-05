@@ -259,37 +259,87 @@ layer {
 
 layer {
   bottom: "conv5_2"
-  top: "fc_pca"
-  name: "fc_pca"
-  type: "InnerProduct"
-  inner_product_param {
-    num_output: 255
+  top: "conv5_3"
+  name: "conv5_3"
+  type: "Convolution"
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
   }
 }
-
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
-  name: "relu_pca"
+  bottom: "conv5_3"
+  top: "conv5_3"
+  name: "relu5_3"
   type: "ReLU"
 }
-
 layer {
-  bottom: "fc_pca"
-  top: "fc_pca"
-  name: "drop_pca"
+  bottom: "conv5_3"
+  top: "pool5"
+  name: "pool5"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  bottom: "pool5"
+  top: "fc6"
+  name: "fc6"
+  type: "InnerProduct"
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  bottom: "fc6"
+  top: "fc6"
+  name: "relu6"
+  type: "ReLU"
+}
+layer {
+  bottom: "fc6"
+  top: "fc6"
+  name: "drop6"
   type: "Dropout"
   dropout_param {
     dropout_ratio: 0.5
   }
 }
 layer {
-  bottom: "fc_pca"
-  top: "fc_out"
-  name: "fc_out"
+  bottom: "fc6"
+  top: "fc7"
+  name: "fc7"
   type: "InnerProduct"
   inner_product_param {
-    num_output: 1
+    num_output: 4096
+  }
+}
+layer {
+  bottom: "fc7"
+  top: "fc7"
+  name: "relu7"
+  type: "ReLU"
+}
+layer {
+  bottom: "fc7"
+  top: "fc7"
+  name: "drop7"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  bottom: "fc7"
+  top: "fc8"
+  name: "fc8"
+  type: "InnerProduct"
+  inner_product_param {
+    num_output: 1000
   }
 }
 
