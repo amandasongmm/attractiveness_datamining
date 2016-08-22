@@ -258,7 +258,7 @@ layer {
 }
 
 
-}ayer {
+layer {
   bottom: "conv5_2"
   top: "fc_pca"
   name: "fc_pca"
