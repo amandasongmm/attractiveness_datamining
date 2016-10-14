@@ -299,6 +299,12 @@ layer {
 layer {
   bottom: "conv5_1"
   top: "conv5_1t"
+  name: "relu5_1t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv5_1t"
+  top: "conv5_1t"
   name: "conv5_1t"
   type: "Deconvolution"
   convolution_param {
@@ -306,12 +312,6 @@ layer {
     pad: 1
     kernel_size: 3
   }
-}
-layer {
-  bottom: "conv5_1t"
-  top: "conv5_1t"
-  name: "relu5_1t"
-  type: "ReLU"
 }
 layer {
   bottom: "conv5_1t"
@@ -329,6 +329,12 @@ layer {
 layer {
   bottom: "unpool4"
   top: "conv4_3t"
+  name: "relu4_3t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv4_3t"
+  top: "conv4_3t"
   name: "conv4_3t"
   type: "Deconvolution"
   convolution_param {
@@ -339,12 +345,12 @@ layer {
 }
 layer {
   bottom: "conv4_3t"
-  top: "conv4_3t"
-  name: "relu4_3t"
+  top: "conv4_2t"
+  name: "relu4_2t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv4_3t"
+  bottom: "conv4_2t"
   top: "conv4_2t"
   name: "conv4_2t"
   type: "Deconvolution"
@@ -356,12 +362,12 @@ layer {
 }
 layer {
   bottom: "conv4_2t"
-  top: "conv4_2t"
-  name: "relu4_2t"
+  top: "conv4_1t"
+  name: "relu4_1t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv4_2t"
+  bottom: "conv4_1t"
   top: "conv4_1t"
   name: "conv4_1t"
   type: "Deconvolution"
@@ -370,12 +376,6 @@ layer {
     pad: 1
     kernel_size: 3
   }
-}
-layer {
-  bottom: "conv4_1t"
-  top: "conv4_1t"
-  name: "relu4_1t"
-  type: "ReLU"
 }
 layer {
   bottom: "conv4_1t"
@@ -393,6 +393,12 @@ layer {
 layer {
   bottom: "unpool3"
   top: "conv3_3t"
+  name: "relu3_3t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_3t"
+  top: "conv3_3t"
   name: "conv3_3t"
   type: "Deconvolution"
   convolution_param {
@@ -403,12 +409,12 @@ layer {
 }
 layer {
   bottom: "conv3_3t"
-  top: "conv3_3t"
-  name: "relu3_3t"
+  top: "conv3_2t"
+  name: "relu3_2t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv3_3t"
+  bottom: "conv3_2t"
   top: "conv3_2t"
   name: "conv3_2t"
   type: "Deconvolution"
@@ -420,12 +426,12 @@ layer {
 }
 layer {
   bottom: "conv3_2t"
-  top: "conv3_2t"
-  name: "relu3_2t"
+  top: "conv3_1t"
+  name: "relu3_1t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv3_2t"
+  bottom: "conv3_1t"
   top: "conv3_1t"
   name: "conv3_1t"
   type: "Deconvolution"
@@ -434,12 +440,6 @@ layer {
     pad: 1
     kernel_size: 3
   }
-}
-layer {
-  bottom: "conv3_1t"
-  top: "conv3_1t"
-  name: "relu3_1t"
-  type: "ReLU"
 }
 layer {
   bottom: "conv3_1t"
@@ -457,6 +457,12 @@ layer {
 layer {
   bottom: "unpool2"
   top: "conv2_2t"
+  name: "relu2_2t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_2t"
+  top: "conv2_2t"
   name: "conv2_2t"
   type: "Deconvolution"
   convolution_param {
@@ -467,12 +473,12 @@ layer {
 }
 layer {
   bottom: "conv2_2t"
-  top: "conv2_2t"
-  name: "relu2_2t"
+  top: "conv2_1t"
+  name: "relu2_1t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv2_2t"
+  bottom: "conv2_1t"
   top: "conv2_1t"
   name: "conv2_1t"
   type: "Deconvolution"
@@ -481,12 +487,6 @@ layer {
     pad: 1
     kernel_size: 3
   }
-}
-layer {
-  bottom: "conv2_1t"
-  top: "conv2_1t"
-  name: "relu2_1t"
-  type: "ReLU"
 }
 layer {
   bottom: "conv2_1t"
@@ -504,6 +504,12 @@ layer {
 layer {
   bottom: "unpool1"
   top: "conv1_2t"
+  name: "relu1_2t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_2t"
+  top: "conv1_2t"
   name: "conv1_2t"
   type: "Deconvolution"
   convolution_param {
@@ -514,12 +520,12 @@ layer {
 }
 layer {
   bottom: "conv1_2t"
-  top: "conv1_2t"
+  top: "conv1_1t"
   name: "relu1_2t"
   type: "ReLU"
 }
 layer {
-  bottom: "conv1_2t"
+  bottom: "conv1_1t"
   top: "conv1_1t"
   name: "conv1_1t"
   type: "Deconvolution"
