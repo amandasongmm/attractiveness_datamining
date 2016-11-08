@@ -1,23 +1,9 @@
-name: "VGG_ILSVRC_16_layers"
-layer {
-  name: "data"
-  type: "ImageData"
-  top: "data"
-  top: "label"
-  transform_param {
-    mirror: false
-    crop_size: 224
-    mean_value: 104
-    mean_value: 117
-    mean_value: 123
-  }
-  image_data_param {
-    source: "/home/lli-ms/attractiveness_datamining/linjieCode/data_list/val_list.txt"
-    batch_size: 50
-    new_height: 256
-    new_width: 256
-  }
-}
+name: "VGG_ILSVRC_16_layers_attr"
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 224
+input_dim: 224
 layer {
   bottom: "data"
   top: "conv1_1"
@@ -266,7 +252,6 @@ layer {
   name: "relu5_2"
   type: "ReLU"
 }
-
 layer {
   bottom: "conv5_2"
   top: "fc_pca"
@@ -301,11 +286,4 @@ layer {
   inner_product_param {
     num_output: 1
   }
-}
-layer {
-  name: "loss"
-  type: "EuclideanLoss"
-  bottom: "fc_out"
-  bottom: "label"
-  top: "loss"
 }
