@@ -1,8 +1,8 @@
-net: "/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg16_attr_train_val.prototxt"
+net: "/raid/linjieli/attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg16_attr_train_val.prototxt"
 solver_type: 2
 test_iter: 100
 test_interval: 200
-base_lr: 0.0000001
+base_lr: 0.00001
 lr_policy: "inv"
 stepsize: 100
 display: 50
@@ -11,5 +11,5 @@ gamma: 0.0001
 power: 0.75
 weight_decay: 0.0005
 snapshot: 1000
-snapshot_prefix: "models/vgg16_attr/snapshots/sencond_train"
+snapshot_prefix: "models/vgg16_attr/snapshots/first_train"
 solver_mode: GPU
