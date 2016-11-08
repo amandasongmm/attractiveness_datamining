@@ -1,23 +1,9 @@
 name: "VGG_ILSVRC_16_layers"
-layer {
-  name: "data"
-  type: "ImageData"
-  top: "data"
-  top: "label"
-  transform_param {
-    mirror: false
-    crop_size: 224
-    mean_value: 104
-    mean_value: 117
-    mean_value: 123
-  }
-  image_data_param {
-    source: "/home/lli-ms/attractiveness_datamining/linjieCode/data_list/val_list.txt"
-    batch_size: 50
-    new_height: 256
-    new_width: 256
-  }
-}
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 224
+input_dim: 224
 layer {
   bottom: "data"
   top: "conv1_1"
@@ -302,10 +288,33 @@ layer {
     num_output: 1
   }
 }
+
+# DECONVOLUTION PART
 layer {
-  name: "loss"
-  type: "EuclideanLoss"
-  bottom: "fc_out"
-  bottom: "label"
-  top: "loss"
+  bottom: "conv1_2"
+  top: "conv1_2t"
+  name: "conv1_2t"
+  type: "Deconvolution"
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv1_2t"
+  top: "conv1_2t"
+  name: "relu1_2t"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_2t"
+  top: "conv1_1t"
+  name: "conv1_1t"
+  type: "Deconvolution"
+  convolution_param {
+    num_output: 3
+    pad: 1
+    kernel_size: 3
+  }
 }
