@@ -1,5 +1,5 @@
 net: "/raid/linjieli/attractiveness_datamining/linjieCode/neuralNet/VGG16_guru2/vgg16_attr_train_val.prototxt"
-type: 2
+type: "Adam"
 test_iter: 100
 test_interval: 200
 base_lr: 0.001
