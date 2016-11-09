@@ -13,7 +13,7 @@ layer {
   }
   image_data_param {
     source: "/raid/linjieli/attractiveness_datamining/linjieCode/list/attractive_train.txt"
-    batch_size: 50
+    batch_size: 10
     new_height: 256
     new_width: 256
   }
@@ -33,7 +33,7 @@ layer {
   }
   image_data_param {
     source: "/raid/linjieli/attractiveness_datamining/linjieCode/list/attractive_test.txt"
-    batch_size: 50
+    batch_size: 10
     new_height: 256
     new_width: 256
   }
