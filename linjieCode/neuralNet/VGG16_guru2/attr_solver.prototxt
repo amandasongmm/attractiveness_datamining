@@ -5,8 +5,6 @@ test_interval: 200
 base_lr: 0.001
 momentum: 0.9
 momentum2: 0.999
-# since Adam dynamically changes the learning rate, we set the base learning
-# rate to a fixed value
 lr_policy: "fixed"
 display: 50
 snapshot: 1000
