@@ -11,5 +11,5 @@ gamma: 0.0001
 power: 0.75
 weight_decay: 0.0005
 snapshot: 1000
-snapshot_prefix: "models/vgg16_attr/snapshots/first_train"
+snapshot_prefix: "models/vgg16_attr/snapshots/fc_train"
 solver_mode: GPU

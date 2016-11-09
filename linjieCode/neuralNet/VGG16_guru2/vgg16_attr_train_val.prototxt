@@ -390,7 +390,7 @@ layer {
     decay_mult: 1
   }
   inner_product_param {
-    num_output: 434
+    num_output: 393
   }
 }
 
