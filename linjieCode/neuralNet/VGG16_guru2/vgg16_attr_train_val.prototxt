@@ -382,12 +382,12 @@ layer {
   name: "fc_pca"
   type: "InnerProduct"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
-    lr_mult: 0
-    decay_mult: 1
+    lr_mult: 1
+    decay_mult: 0
   }
   inner_product_param {
     num_output: 393
@@ -416,12 +416,12 @@ layer {
   name: "fc_out"
   type: "InnerProduct"
   param {
-    lr_mult: 1
+    lr_mult: 10
     decay_mult: 1
   }
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 10
+    decay_mult: 0
   }
   inner_product_param {
     num_output: 1
