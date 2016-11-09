@@ -2,7 +2,7 @@ net: "/raid/linjieli/attractiveness_datamining/linjieCode/neuralNet/VGG16_guru2/
 solver_type: 2
 test_iter: 100
 test_interval: 200
-base_lr: 0.00001
+base_lr: 0.0000001
 lr_policy: "inv"
 stepsize: 100
 display: 50
