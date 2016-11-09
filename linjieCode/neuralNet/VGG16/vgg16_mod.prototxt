@@ -12,7 +12,7 @@ layer {
     mean_value: 123
   }
   image_data_param {
-    source: "/home/lli-ms/attractiveness_datamining/linjieCode/data_list/val_list.txt"
+    source: "/home/lli-ms/attractiveness_datamining/linjieCode/data_list/attractive_train.txt"
     batch_size: 50
     new_height: 256
     new_width: 256
@@ -273,7 +273,7 @@ layer {
   name: "fc_pca"
   type: "InnerProduct"
   inner_product_param {
-    num_output: 255
+    num_output: 540
   }
 }
 

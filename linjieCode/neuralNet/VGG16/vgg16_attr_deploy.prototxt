@@ -258,7 +258,7 @@ layer {
   name: "fc_pca"
   type: "InnerProduct"
   inner_product_param {
-    num_output: 255
+    num_output: 540
   }
 }
 
