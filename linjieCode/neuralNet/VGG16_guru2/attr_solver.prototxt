@@ -8,5 +8,6 @@ momentum2: 0.999
 lr_policy: "fixed"
 display: 50
 snapshot: 1000
+max_iter: 10000
 snapshot_prefix: "models/vgg16_social/snapshots/attr_fc_train"
 solver_mode: GPU
