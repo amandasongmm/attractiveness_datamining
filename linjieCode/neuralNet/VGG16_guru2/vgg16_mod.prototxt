@@ -12,7 +12,7 @@ layer {
     mean_value: 123
   }
   image_data_param {
-    source: "/raid/linjieli/attractiveness_datamining/linjieCode/list/attr_test.txt"
+    source: "/raid/linjieli/attractiveness_datamining/linjieCode/list/attractive_test.txt"
     batch_size: 4
     new_height: 256
     new_width: 256
