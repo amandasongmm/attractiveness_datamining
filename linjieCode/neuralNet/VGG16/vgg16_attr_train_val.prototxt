@@ -1,4 +1,4 @@
-name: "VGG_ILSVRC_16_layers"
+name: "VGG_16_SOCIAL_layers"
 layer {
   name: "data"
   type: "ImageData"
