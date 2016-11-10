@@ -298,6 +298,6 @@ layer {
   name: "loss"
   type: "EuclideanLoss"
   bottom: "fc_out"
-  bottom: 'label'
+  bottom: "label"
   top: "loss"
 }
