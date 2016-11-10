@@ -288,11 +288,11 @@ layer {
   inner_product_param {
     num_output: 1
   }
+}
 layer {
   name: "loss"
   type: "EuclideanLoss"
   bottom: "fc_out"
   bottom: 8
   top: "loss"
-}
 }
