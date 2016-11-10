@@ -5,8 +5,8 @@ test_interval: 200
 base_lr: 0.001
 lr_policy: "inv"
 stepsize: 100
-display: 50
-max_iter: 20000
+display: 100
+max_iter: 10000
 gamma: 0.0001
 power: 0.75
 weight_decay: 0.0005
