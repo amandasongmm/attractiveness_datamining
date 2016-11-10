@@ -45,7 +45,7 @@ layer {
   name: "conv1_1"
   type: "Convolution"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
@@ -387,7 +387,7 @@ layer {
   }
   param {
     lr_mult: 1
-    decay_mult: 1
+    decay_mult: 0
   }
   inner_product_param {
     num_output: 540
@@ -421,7 +421,7 @@ layer {
   }
   param {
     lr_mult: 10
-    decay_mult: 1
+    decay_mult: 0
   }
   inner_product_param {
     num_output: 1
