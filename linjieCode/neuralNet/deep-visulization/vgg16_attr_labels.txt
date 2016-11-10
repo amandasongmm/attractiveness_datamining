@@ -1,1 +1,2 @@
 attractiveness ratings
+attractiveness loss
