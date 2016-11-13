@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import os
 import cv2 as cv
 import argparse
+import ConfigParser
 
 
 __author__ = 'amanda'
@@ -27,6 +28,7 @@ def load_data(data_name, batch_size=2, shuffle=False, rand_mirror=True):
 
 class FineTune:
     def __init__(self, load_para_num, train_epoch_num, lr, wd):
+        config_filename = 'config/para.ini'
         self.load_para_num = load_para_num
         self.train_epoch_num = train_epoch_num
         self.learning_rate = lr
