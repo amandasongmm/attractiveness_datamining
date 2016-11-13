@@ -186,6 +186,9 @@ def Train_Test(rating_train,rating_test,rating_vali,feature_train, feature_test,
         maxRating,maxIndex,minRating,minIndex = getPredResult(predicted_rating,test_index)
         return maxRating,maxIndex,minRating,minIndex
     
+    if returnValTrain and returnModel:
+        return pModel,optNumFea,(sum(corrValiList) / numTrain), (sum(corrTrainList) / numTrain)
+    
     if returnModel:
         return pModel,optNumFea
     
