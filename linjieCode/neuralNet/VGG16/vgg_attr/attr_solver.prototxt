@@ -1,0 +1,15 @@
+net: "/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg_attr/vgg16_attr_train_val.prototxt"
+solver_type: 2
+test_iter: 100
+test_interval: 200
+base_lr: 0.0001
+lr_policy: "inv"
+stepsize: 100
+display: 100
+max_iter: 10000
+gamma: 0.0001
+power: 0.75
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "models/vgg16_social/snapshots/attractive_conv5_2_first"
+solver_mode: GPU

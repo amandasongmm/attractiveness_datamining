@@ -4,6 +4,11 @@ input_dim: 1
 input_dim: 3
 input_dim: 224
 input_dim: 224
+input: "label"
+input_dim: 1
+input_dim: 1
+input_dim: 1
+input_dim: 1
 force_backward: true
 
 layer {
@@ -288,4 +293,11 @@ layer {
   inner_product_param {
     num_output: 1
   }
+}
+layer {
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "fc_out"
+  bottom: "label"
+  top: "loss"
 }
