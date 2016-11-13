@@ -26,5 +26,5 @@ def my_scatter_plot(result_path, fig_title, fig_save_path):
 
     return
 
-my_scatter_plot('train1.npz', 'Training data', 'train_scatter.png')
-my_scatter_plot('test1.npz', 'test data', 'test_scatter.png')
+my_scatter_plot('attract_train1.npz', 'Training data', 'attract_train_scatter.png')
+my_scatter_plot('attract_test1.npz', 'Test data', 'attract_test_scatter.png')
