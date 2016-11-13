@@ -1,17 +1,40 @@
-Starting Dropbox: ~/bin/dropbox.py start
-~/thunderbird/thunderbird
+
+
+==========================================================================================
+
+
+
+
+
+
+
+./build/tools/caffe train -solver ../attractiveness_datamining/linjieCode/neuralNet/VGG16/vgg_attr/attr_solver.prototxt -weights models/vgg16_social/snapshots/attractive_fc_third_iter_10000.caffemodel -gpu 0 2>&1 | tee logFile/attr_conv_train.log 
+
+==========================================================================================
+
 
 ./optimize_image.py --net-weights '/home/lli-ms/caffe/models/vgg16_attr/snapshots/first_train_iter_2000.caffemodel'\
  --deploy-proto '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_attr_deploy.prototxt'\
- --push-layer loss --push-channel 0                  \
- --decay 0 --blur-radius 0.5 --blur-every 4  --small-norm-percentile 50  --max-iter 500  --lr-policy progress --lr-params "{'max_lr': 100.0, 'desired_prog': 2.0}”
+ --push-layer fc_pca --push-channel 10                  \
+ --brave --decay 0      --blur-radius 0.5 --blur-every 4  --small-norm-percentile 50     --max-iter 500  --lr-policy progress --lr-params "{'max_lr': 100.0, 'desired_prog': 2.0}"
 
 
-./optimize_image.py --net-weights '/home/lli-ms/caffe/models/vgg16_attr/snapshots/first_train_iter_2000.caffemodel' --deploy-proto '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_attr_deploy.prototxt' --push-layer loss --push-channel 0   --decay 0.0001 --blur-radius 1.0 --blur-every 4                           --max-iter 1000 --lr-policy constant --lr-params "{'lr': 100.0}" --output-prefix 'optimize_results_constant/opt'
+./optimize_image.py --net-weights '/home/lli-ms/caffe/models/vgg16_attr/vgg16_attr_max_pca_100_weight.caffemodel' --deploy-proto '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_attr_deploy.prototxt' --push-layer loss --push-channel 0   --decay 0.0001 --blur-radius 1.0 --blur-every 4 --brave --max-iter 1000 --lr-policy constant --lr-params "{'lr': 100.0}" --output-prefix 'optimize_results_constant/opt'
+
+==========================================================================================
+
 
 ./find_max_acts.py --N 9 --gpu '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_attr_deploy.prototxt' '/home/lli-ms/caffe/models/vgg16_attr/snapshots/first_train_iter_2000.caffemodel' '/home/lli-ms/attractiveness_datamining/MIT2kFaceDataset/2kfaces/' '/home/lli-ms/attractiveness_datamining/linjieCode/data_list/train_list_deep_visual.txt' 'maxFC.pkl' '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_mean.npy'
+
+==========================================================================================
 
 ./crop_max_patches.py --N 9 --gpu --do-maxes --do-deconv --do-deconv-norm --do-backprop --do-backprop-norm --do-info  'maxFC.pkl' '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_attr_deploy.prototxt' '/home/lli-ms/caffe/models/vgg16_attr/snapshots/first_train_iter_2000.caffemodel' '/home/lli-ms/attractiveness_datamining/MIT2kFaceDataset/2kfaces/' '/home/lli-ms/attractiveness_datamining/linjieCode/data_list/train_list_deep_visual.txt' './vgg16_attr_perUnit/' 'conv5_2' '/home/lli-ms/attractiveness_datamining/linjieCode/neuralNet/deep-visulization/vgg16_mean.npy'
 
 
 --idx-begin 27 --idx-end 477
+
+
+/home/lli-ms/caffe/models/vgg16_attr/vgg16_attr_max_pca_100_weight.caffemodel
+
+
+
