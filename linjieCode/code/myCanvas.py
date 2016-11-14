@@ -17,19 +17,22 @@ p = pd.read_csv('./correlation_array', index_col = 0)
 column_name = p.columns.tolist()
 data = p.as_matrix()
 print data.shape
-data2 = np.loadtxt('./predictCorrelation.csv',delimiter=',')
-
+data2 = pd.read_csv('./correlation_predicted.csv', index_col = 0)
+data2 = data2.as_matrix()
 print data2.shape
 
+# plotHeatMap(rho, clusterNum=15, xTickLabel=social2Attr, \
+#             colorMapName='coolwarm', figName='predictCorr_reordered1', fSize=3.5 \
+#             , dendro=False)
 
 index_order ,_ = plotHeatMap(data,clusterNum= 15,xTickLabel=column_name,\
-            colorMapName='coolwarm',figName = '',fSize = 3.5\
-            ,dendro = False)
+            colorMapName='coolwarm',figName = 'correlation_dendro',fSize = 3.5\
+            ,dendro=True)
 print index_order
 
 plotHeatMap(data2, clusterNum=15, xTickLabel=column_name, \
-                             colorMapName='coolwarm', figName='predictCorr_reordered', fSize=3.5 \
-                             , dendro=False,tripIndex= index_order)
+                             colorMapName='coolwarm', figName='predictCorr_reordered_dendro1', fSize=3.5 \
+                             , dendro=True,tripIndex= index_order)
 
 from scipy.signal import correlate2d
 xcorr2d = correlate2d(data, data2, mode='same', boundary='fill', fillvalue=0)
