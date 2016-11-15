@@ -382,7 +382,7 @@ layer {
   name: "fc_pca"
   type: "InnerProduct"
   param {
-    lr_mult: 0
+    lr_mult: 1
     decay_mult: 1
   }
   param {
