@@ -11,5 +11,5 @@ gamma: 0.0001
 power: 0.75
 weight_decay: 0.0005
 snapshot: 1000
-snapshot_prefix: "models/vgg16_social/snapshots/attractive_conv5_2_first"
+snapshot_prefix: "models/vgg16_social/snapshots/attractive_fc_first"
 solver_mode: GPU
