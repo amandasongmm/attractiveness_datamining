@@ -13,26 +13,27 @@ if PkgPath not in sys.path:
 from plotFunc import plotHeatMap
 import pandas as pd
 import numpy as np
-p = pd.read_csv('./correlation_array', index_col = 0)
+p = pd.read_csv('../correlation_heatmap/correlation_array', index_col = 0)
 column_name = p.columns.tolist()
 data = p.as_matrix()
 print data.shape
-data2 = pd.read_csv('./correlation_predicted.csv', index_col = 0)
+data2 = pd.read_csv('../correlation_heatmap/correlation_predicted.csv', index_col = 0)
 data2 = data2.as_matrix()
 print data2.shape
 
 # plotHeatMap(rho, clusterNum=15, xTickLabel=social2Attr, \
 #             colorMapName='coolwarm', figName='predictCorr_reordered1', fSize=3.5 \
 #             , dendro=False)
-
-index_order ,_ = plotHeatMap(data,clusterNum= 15,xTickLabel=column_name,\
-            colorMapName='coolwarm',figName = 'correlation_dendro',fSize = 3.5\
-            ,dendro=True)
+index_order = [21, 27, 26, 34, 11, 22, 2, 13, 12, 5, 28, 23, 33, 9, 29, 24, 32, 35, 25, 4, 14, 18, 17, 10, 31, 3, 20, 39, 30, 36, 6, 7, 19, 38, 1, 15, 8, 0, 16, 37]
+tickLable = [column_name[temp] for temp in index_order]#column_name[::2]
+plotHeatMap(data,clusterNum= 1,xTickLabel=tickLable,\
+            colorMapName='coolwarm',figName = 'correlation_dendro',fSize = 2\
+            ,dendro=False,tripIndex= index_order)
 print index_order
-
-plotHeatMap(data2, clusterNum=15, xTickLabel=column_name, \
-                             colorMapName='coolwarm', figName='predictCorr_reordered_dendro1', fSize=3.5 \
-                             , dendro=True,tripIndex= index_order)
+#tickLable = column_name[1:][::2]
+plotHeatMap(data2, clusterNum=10, xTickLabel=tickLable, \
+                             colorMapName='coolwarm', figName='predictCorr_reordered_dendro1', fSize=2\
+                             , dendro=False,tripIndex= index_order)
 
 from scipy.signal import correlate2d
 xcorr2d = correlate2d(data, data2, mode='same', boundary='fill', fillvalue=0)

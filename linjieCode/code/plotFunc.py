@@ -42,7 +42,7 @@ def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabe
     if dendro:
         axmatrix = fig.add_axes([0.3,0.1,0.6,0.8])
     else:
-        axmatrix = fig.add_axes([0.1,0.1,0.7,0.8])
+        axmatrix = fig.add_axes([0.2,0.05,0.64,0.75])
     index = Z['leaves']
 #     print 'leaves',index
     if dendro or len(tripIndex) == 0:
@@ -51,11 +51,11 @@ def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabe
     data = data[:,tripIndex]
     im = axmatrix.matshow(data, aspect='auto',vmin=data.min(), vmax=data.max(), cmap = plt.get_cmap(colorMapName))
     if len(xTickLabel)>0:
-        axmatrix.set_xticks(np.arange(0,length), minor=False)
-        xTickLabel = [ xTickLabel[i] for i in tripIndex]
-        axmatrix.set_xticklabels(xTickLabel,fontsize = lSize-10,rotation=90)
-        axmatrix.set_yticks(np.arange(0, length), minor=False)
-        axmatrix.set_yticklabels(xTickLabel, fontsize=lSize - 10)
+        axmatrix.set_xticks(np.arange(0,length)[::2], minor=False)
+        #xTickLabel = [ xTickLabel[i] for i in tripIndex]
+        axmatrix.set_xticklabels(xTickLabel[::2],fontsize = lSize-10,rotation=90)
+        axmatrix.set_yticks(np.arange(0, length)[::2]+1, minor=False)
+        axmatrix.set_yticklabels(xTickLabel[1:][::2], fontsize=lSize - 10)
     else:
         axmatrix.set_yticks([])
         axmatrix.set_xticks([])
@@ -63,7 +63,7 @@ def plotHeatMap(data,xTickLabel = [],clusterNum = 20,colorMapName = 'RdBu',hLabe
 
 
     # Plot colorbar.
-    axcolor = fig.add_axes([0.81,0.1,0.02,0.8])
+    axcolor = fig.add_axes([0.85,0.05,0.015,0.75])
     # adjusting your colorbar limit
     cbar = pylab.colorbar(im, cax=axcolor,ticks=cBarTicks)
     cbar.set_label(bLabel, rotation=270,labelpad=30,fontsize = lSize)
