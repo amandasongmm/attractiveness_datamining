@@ -22,7 +22,7 @@ def crossVal( y_train, y_test, X_train, X_test, pModel = prediction_model, valSi
     if MODEL != 'faceSNN':
         numFeature = np.linspace(1,500,num = 100,dtype = np.int16)
     else:
-        numFeature = np.linspace(0,50,num = 10,dtype = np.int16 )
+        numFeature = np.linspace(1,50,num = 10,dtype = np.int16 )
     for numF in numFeature:
         X_train_hat = X_train[:, :numF]
         X_test_hat = X_test[:, :numF]
